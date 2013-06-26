@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="locations">
+        <item>Home</item>
+        <item>Amigos</item>
+        <item>Minha Academia</item>
+        <item>Treinar</item>
+    </string-array>
+</resources>
