@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
@@ -12,13 +13,19 @@ import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivit
 import roboguice.inject.InjectView;
 
 public class HelloAndroidActivity extends RoboSherlockActivity implements ActionBar.OnNavigationListener {
-    @InjectView(R.id.button) Button button;
+    @InjectView(R.id.imgBtnMyGym)
+    ImageButton gym;
+    @InjectView(R.id.imgBtnFriends)
+    ImageButton friends;
+    @InjectView(R.id.imgBtnResults)
+    ImageButton results;
+    @InjectView(R.id.imgBtnTrain)
+    ImageButton train;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button.setText("Teste do roboguice com sherlock");
 
         //pega o conexto com o thema
         Context context = getSupportActionBar().getThemedContext();
@@ -26,7 +33,7 @@ public class HelloAndroidActivity extends RoboSherlockActivity implements Action
         list.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        getSupportActionBar().setListNavigationCallbacks(list,this);
+        getSupportActionBar().setListNavigationCallbacks(list, this);
     }
 
     @Override
