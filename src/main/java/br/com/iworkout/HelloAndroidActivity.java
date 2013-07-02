@@ -1,5 +1,6 @@
 package br.com.iworkout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,18 +35,12 @@ public class HelloAndroidActivity extends RoboSherlockActivity implements Action
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         getSupportActionBar().setListNavigationCallbacks(list, this);
-
-        train.setOnClickListener(new OnClickListener() {
-            public void onClick(View view) {
-                CharSequence text = "Hello toast!";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
-                toast.show();
-            }
-        });
     }
 
+    public void onClickTrain(View view){
+        Intent intent = new Intent(this, TrainActivity.class);
+        startActivity(intent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getSupportMenuInflater().inflate(R.menu.main, menu);

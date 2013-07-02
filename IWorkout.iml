@@ -43,6 +43,8 @@
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.android:support-v4:r7" level="project" />
+    <orderEntry type="library" name="Maven: com.j256.ormlite:ormlite-android:4.45" level="project" />
+    <orderEntry type="library" name="Maven: com.j256.ormlite:ormlite-core:4.45" level="project" />
     <orderEntry type="module" module-name="~apklib-com.actionbarsherlock_actionbarsherlock_4.3.1" />
   </component>
 </module>
