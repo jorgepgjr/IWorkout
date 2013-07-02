@@ -6,20 +6,75 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        android:layout_alignParentRight="true"
-        android:id="@+id/textView"/>
-
-    <Button
-            style="?android:attr/buttonStyleSmall"
+    <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/textView"/>
+            android:id="@+id/imgBtnTrain"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/grafico"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="70dp"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgBtnResults"
+            android:background="@drawable/grafico"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="10dp"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgBtnFriends"
+            android:background="@drawable/grafico"
+            android:layout_below="@+id/imgBtnTrain"
+            android:layout_alignLeft="@+id/imgBtnTrain"
+            android:layout_marginTop="20dp"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgBtnMyGym"
+            android:background="@drawable/grafico"
+            android:layout_below="@+id/imgBtnResults"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignRight="@+id/imgBtnResults"
+            android:layout_marginTop="20dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Ultimo treino"
+            android:id="@+id/txtLastTrain"
+            android:layout_below="@+id/imgBtnFriends"
+            android:layout_alignParentLeft="false"
+            android:layout_alignLeft="@+id/imgBtnFriends"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Meta:"
+            android:id="@+id/txtGoalLabel"
+            android:layout_below="@+id/txtLastTrain"
+            android:layout_alignLeft="@+id/txtLastTrain"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtGoal"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentLeft="false"
+            android:layout_below="@+id/txtLastTrain"
+            android:layout_toRightOf="@+id/txtGoalLabel"
+            android:layout_marginLeft="10dp"/>
 
 </RelativeLayout>
