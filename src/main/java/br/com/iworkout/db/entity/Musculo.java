@@ -11,7 +11,19 @@ public class Musculo {
     @DatabaseField(index = true)
     String nome;
 
-    Musculo() {
+    public Musculo() {
         // needed by ormlite
+    }
+
+    public Musculo (String nome){
+        this.nome = nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }
