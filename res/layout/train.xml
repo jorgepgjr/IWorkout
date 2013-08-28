@@ -4,4 +4,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_marginTop="46dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/button"
+            android:onClick="onClickSave"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Save"
+            android:id="@+id/button2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="false"
+            android:onClick="onClickShow"
+            android:layout_alignParentLeft="true"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/name"
+            android:id="@+id/textView"
+            android:layout_alignBaseline="@+id/editText"
+            android:layout_alignBottom="@+id/editText"
+            android:layout_alignParentLeft="true"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/exercices"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="50dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="20dp"/>
+
 </RelativeLayout>

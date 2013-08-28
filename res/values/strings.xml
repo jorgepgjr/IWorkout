@@ -4,6 +4,6 @@
     <string name="app_name">IWorkout</string>
     <string name="hello">Hello IWorkout!</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Hello world!</string><string name="Save">Salvar</string><string name="cancel">Cancelar</string><string name="name">Nome</string><string name="exercices">Exercicios:</string>
 
 </resources>

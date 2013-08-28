@@ -35,9 +35,12 @@ public class HelloAndroidActivity extends RoboSherlockActivity implements Action
 
         getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
         getSupportActionBar().setListNavigationCallbacks(list, this);
+
+
     }
 
     public void onClickTrain(View view){
+
         Intent intent = new Intent(this, TrainActivity.class);
         startActivity(intent);
     }
