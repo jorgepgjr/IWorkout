@@ -11,9 +11,13 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.iworkout.db.entity.Exercicio;
 import br.com.iworkout.db.entity.Musculo;
+import br.com.iworkout.db.entity.Serie;
+import br.com.iworkout.db.entity.Treino;
 
 /**
  * Database helper class used to manage the creation and upgrading of your database. This class also usually provides
@@ -24,11 +28,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 10;
 
     // the DAO object we use to access the Musculo table
-    private Dao<Musculo, Integer> simpleDao = null;
-    private RuntimeExceptionDao<Musculo, Integer> simpleRuntimeDao = null;
+    private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
+    private RuntimeExceptionDao<Exercicio, Integer> exercicioDao = null;
+    private RuntimeExceptionDao<Treino, Integer> treinoDao = null;
+    private RuntimeExceptionDao<Serie, Integer> serieDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -43,20 +49,33 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, Musculo.class);
+            TableUtils.createTable(connectionSource, Serie.class);
             TableUtils.createTable(connectionSource, Exercicio.class);
+            TableUtils.createTable(connectionSource, Treino.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
         }
 
         // here we try inserting data in the on-create as a test
-        RuntimeExceptionDao<Musculo, Integer> dao = getSimpleDataDao();
+        RuntimeExceptionDao<Musculo, Integer> dao = getMusculoDao();
 
+        List musculos = new ArrayList();
         // create some entries in the onCreate
         Musculo simple = new Musculo("Perna");
         dao.create(simple);
-        simple.setNome("Ombro");
-        dao.create(simple);
+
+        Musculo simple2 = new Musculo("Braço");
+        dao.create(simple2);
+
+        musculos.add(simple);
+        musculos.add(simple2);
+        Exercicio exercicio = new Exercicio();
+        exercicio.setMusculos(musculos);
+
+
+        getExercicioDao().create(exercicio);
+
         Log.i(DatabaseHelper.class.getName(), "created new entries in onCreate");
     }
 
@@ -78,25 +97,35 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     }
 
     /**
-     * Returns the Database Access Object (DAO) for our SimpleData class. It will create it or just give the cached
-     * value.
-     */
-    public Dao<Musculo, Integer> getDao() throws SQLException {
-        if (simpleDao == null) {
-            simpleDao = getDao(Musculo.class);
-        }
-        return simpleDao;
-    }
-
-    /**
      * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our SimpleData class. It will
      * create it or just give the cached value. RuntimeExceptionDao only through RuntimeExceptions.
      */
-    public RuntimeExceptionDao<Musculo, Integer> getSimpleDataDao() {
-        if (simpleRuntimeDao == null) {
-            simpleRuntimeDao = getRuntimeExceptionDao(Musculo.class);
+    public RuntimeExceptionDao<Musculo, Integer> getMusculoDao() {
+        if (musculoDao == null) {
+            musculoDao = getRuntimeExceptionDao(Musculo.class);
         }
-        return simpleRuntimeDao;
+        return musculoDao;
+    }
+
+    public RuntimeExceptionDao<Exercicio, Integer> getExercicioDao() {
+        if (exercicioDao == null) {
+            exercicioDao = getRuntimeExceptionDao(Exercicio.class);
+        }
+        return exercicioDao;
+    }
+
+    public RuntimeExceptionDao<Serie, Integer> getSerieDao() {
+        if (serieDao == null) {
+            serieDao = getRuntimeExceptionDao(Serie.class);
+        }
+        return serieDao;
+    }
+
+    public RuntimeExceptionDao<Treino, Integer> getTreinoDao() {
+        if (treinoDao == null) {
+            treinoDao = getRuntimeExceptionDao(Treino.class);
+        }
+        return treinoDao;
     }
 
     /**
@@ -105,6 +134,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void close() {
         super.close();
-        simpleRuntimeDao = null;
+        musculoDao = null;
     }
 }
