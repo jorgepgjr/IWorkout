@@ -6,15 +6,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
-import java.sql.SQLException;
 import java.util.List;
 
-import br.com.iworkout.db.DatabaseHelper;
 import br.com.iworkout.db.entity.Musculo;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
@@ -32,6 +27,8 @@ public class TrainActivity extends DBActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //showDialog();
+
     }
 
     public void onClickSave(View view) {
@@ -51,4 +48,8 @@ public class TrainActivity extends DBActivity {
             toast.show();
         }
     }
+
+
+
+
 }
