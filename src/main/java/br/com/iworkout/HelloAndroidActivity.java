@@ -3,20 +3,18 @@ package br.com.iworkout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
+import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
 @ContentView(R.layout.activity_main)
-public class HelloAndroidActivity extends RoboSherlockActivity implements ActionBar.OnNavigationListener {
+public class HelloAndroidActivity extends RoboSherlockFragmentActivity implements ActionBar.OnNavigationListener {
     @InjectView(R.id.imgBtnMyGym)
     ImageButton gym;
     @InjectView(R.id.imgBtnFriends)
@@ -41,6 +39,7 @@ public class HelloAndroidActivity extends RoboSherlockActivity implements Action
         Intent intent = new Intent(this, TrainActivity.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getSupportMenuInflater().inflate(R.menu.main, menu);

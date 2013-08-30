@@ -1,6 +1,9 @@
 package br.com.iworkout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,8 +30,15 @@ public class TrainActivity extends DBActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //showDialog();
+        showNoTrainsDialog();
+    }
 
+    void showNoTrainsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        builder.setView(inflater.inflate(R.layout.fragment_dialog, null));
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public void onClickSave(View view) {
@@ -50,6 +60,9 @@ public class TrainActivity extends DBActivity {
     }
 
 
-
+//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//        final MyDialogFragment dialogFragment = new MyDialogFragment(R.layout.fragment_dialog);
+//        dialogFragment.show(ft, "dialog");
+//    http://developer.android.com/guide/topics/ui/dialogs.html
 
 }
