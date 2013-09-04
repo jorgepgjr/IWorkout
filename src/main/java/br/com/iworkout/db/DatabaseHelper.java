@@ -28,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     // the DAO object we use to access the Musculo table
     private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
@@ -57,24 +57,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             throw new RuntimeException(e);
         }
 
-        // here we try inserting data in the on-create as a test
-        RuntimeExceptionDao<Musculo, Integer> dao = getMusculoDao();
-
-        List musculos = new ArrayList();
-        // create some entries in the onCreate
-        Musculo simple = new Musculo("Perna");
-        dao.create(simple);
-
-        Musculo simple2 = new Musculo("Braço");
-        dao.create(simple2);
-
-        musculos.add(simple);
-        musculos.add(simple2);
-        Exercicio exercicio = new Exercicio();
-        exercicio.setMusculos(musculos);
-
-
-        getExercicioDao().create(exercicio);
 
         Log.i(DatabaseHelper.class.getName(), "created new entries in onCreate");
     }

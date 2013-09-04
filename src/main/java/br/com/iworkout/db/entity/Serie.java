@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +16,7 @@ import javax.persistence.Table;
 public class Serie {
 
     @Id
-    private int id;
+    private Long id;
 
     @Column
     private Long qtd;
@@ -29,14 +30,14 @@ public class Serie {
     @Column
     private Long carga;
 
-    @Column
+    @OneToOne(mappedBy = "exercicio", fetch = FetchType.EAGER)
     private Exercicio exercicio;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

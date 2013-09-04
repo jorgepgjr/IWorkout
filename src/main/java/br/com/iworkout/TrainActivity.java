@@ -1,68 +1,81 @@
 package br.com.iworkout;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
-import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
 
+
+import java.util.Arrays;
 import java.util.List;
 
-import br.com.iworkout.db.entity.Musculo;
+import br.com.iworkout.db.entity.Treino;
+import br.com.iworkout.util.MyDialogFragment;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
 
 @ContentView(R.layout.train)
-public class TrainActivity extends DBActivity {
+public class TrainActivity extends DBFragmentActivity implements MyDialogFragment.NoticeDialogListener{
 
-    @InjectView(R.id.editText)
-    EditText txtMusculo;
-
-    @InjectView(R.id.button)
-    Button button;
+    @InjectView(R.id.list)
+    ListView list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        showNoTrainsDialog();
+        List<Treino> treinos = getHelper().getTreinoDao().queryForAll();
+        String[] values = new String[10];
+        int x = 1;
+        for (Treino treino :treinos){
+//            Arrays.fill(values, treino.getNome());
+            Arrays.fill(values, "Treino "+ x);
+            x++;
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
+
+        list.setAdapter(adapter);
+
+
+//        showNoTrainsDialog();
     }
 
     void showNoTrainsDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = this.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.fragment_dialog, null));
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        MyDialogFragment dialog = new MyDialogFragment();
+        dialog.show(getSupportFragmentManager(), "MyDialogFragment");
     }
 
     public void onClickSave(View view) {
-        RuntimeExceptionDao<Musculo, Integer> musculoDao = getHelper().getMusculoDao();
-        Musculo musculo = new Musculo();
-        musculo.setNome(txtMusculo.getText().toString());
-        musculoDao.create(musculo);
+//        RuntimeExceptionDao<Musculo, Integer> musculoDao = getHelper().getMusculoDao();
+//        Musculo musculo = new Musculo();
+//        musculo.setNome(txtMusculo.getText().toString());
+//        musculoDao.create(musculo);
     }
 
     public void onClickShow(View view) {
-        RuntimeExceptionDao<Musculo, Integer> musculoDao = getHelper().getMusculoDao();
-        List<Musculo> list = musculoDao.queryForAll();
-
-
-        for (Musculo musculo : list) {
-            Toast toast = Toast.makeText(this, musculo.getNome() + list.size(), Toast.LENGTH_SHORT);
-            toast.show();
-        }
+//        RuntimeExceptionDao<Musculo, Integer> musculoDao = getHelper().getMusculoDao();
+//        List<Musculo> list = musculoDao.queryForAll();
+//
+//
+//        for (Musculo musculo : list) {
+//            Toast toast = Toast.makeText(this, musculo.getNome() + list.size(), Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
     }
 
+    @Override
+    public void onDialogPositiveClick(RoboSherlockDialogFragment dialog) {
 
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        final MyDialogFragment dialogFragment = new MyDialogFragment(R.layout.fragment_dialog);
-//        dialogFragment.show(ft, "dialog");
-//    http://developer.android.com/guide/topics/ui/dialogs.html
+    }
+
+    @Override
+    public void onDialogNegativeClick(RoboSherlockDialogFragment dialog) {
+
+    }
 
 }

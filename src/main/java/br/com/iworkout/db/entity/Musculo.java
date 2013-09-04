@@ -13,7 +13,7 @@ public class Musculo {
 
     @Id
     @GeneratedValue
-    int id;
+    Long id;
     @Column
     String nome;
 

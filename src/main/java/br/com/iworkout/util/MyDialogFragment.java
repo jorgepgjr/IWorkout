@@ -16,24 +16,18 @@
 
 package br.com.iworkout.util;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
+import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
 
 import br.com.iworkout.R;
 
-public class MyDialogFragment extends SherlockDialogFragment {
-    private int dialog;
-
-    public MyDialogFragment(int dialog) {
-        this.dialog = dialog;
-    }
+public class MyDialogFragment extends RoboSherlockDialogFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,8 +37,7 @@ public class MyDialogFragment extends SherlockDialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View v = inflater.inflate(dialog, container, false);
+        View v = inflater.inflate(R.layout.fragment_dialog, container, false);
 //        View tv = v.findViewById(R.id.text);
 //
 //        // watch for button clicks.
@@ -56,4 +49,36 @@ public class MyDialogFragment extends SherlockDialogFragment {
 //        });
         return v;
     }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        // Verify that the host activity implements the callback interface
+        try {
+            // Instantiate the NoticeDialogListener so we can send events to the host
+            mListener = (NoticeDialogListener) activity;
+        } catch (ClassCastException e) {
+            // The activity doesn't implement the interface, throw exception
+            throw new ClassCastException(activity.toString()
+                    + " must implement NoticeDialogListener");
+        }
+    }
+
+    /* The activity that creates an instance of this dialog fragment must
+     * implement this interface in order to receive event callbacks.
+     * Each method passes the DialogFragment in case the host needs to query it. */
+    public interface NoticeDialogListener {
+        public void onDialogPositiveClick(RoboSherlockDialogFragment dialog);
+        public void onDialogNegativeClick(RoboSherlockDialogFragment dialog);
+    }
+
+    // Use this instance of the interface to deliver action events
+    NoticeDialogListener mListener;
 }
