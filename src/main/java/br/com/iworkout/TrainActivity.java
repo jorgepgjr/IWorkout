@@ -66,6 +66,7 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
 //            Toast toast = Toast.makeText(this, musculo.getNome() + list.size(), Toast.LENGTH_SHORT);
 //            toast.show();
 //        }
+//        http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/
     }
 
     @Override
