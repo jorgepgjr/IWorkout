@@ -15,6 +15,7 @@ import java.util.List;
 
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.MyDialogFragment;
+import br.com.iworkout.util.adapter.TrainListAdapter;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
@@ -29,19 +30,10 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         List<Treino> treinos = getHelper().getTreinoDao().queryForAll();
-        String[] values = new String[10];
-        int x = 1;
-        for (Treino treino :treinos){
-//            Arrays.fill(values, treino.getNome());
-            Arrays.fill(values, "Treino "+ x);
-            x++;
+        if (treinos != null && treinos.size() > 0){
+            TrainListAdapter adapter = new TrainListAdapter(this,treinos);
+            list.setAdapter(adapter);
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
-
-        list.setAdapter(adapter);
-
-
 //        showNoTrainsDialog();
     }
 

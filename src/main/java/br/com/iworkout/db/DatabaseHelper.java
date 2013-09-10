@@ -28,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 12;
 
     // the DAO object we use to access the Musculo table
     private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
@@ -49,8 +49,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, Musculo.class);
-            TableUtils.createTable(connectionSource, Serie.class);
             TableUtils.createTable(connectionSource, Exercicio.class);
+            TableUtils.createTable(connectionSource, Serie.class);
             TableUtils.createTable(connectionSource, Treino.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -70,6 +70,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onUpgrade");
             TableUtils.dropTable(connectionSource, Musculo.class, true);
+            TableUtils.dropTable(connectionSource, Exercicio.class, true);
+            TableUtils.dropTable(connectionSource, Serie.class, true);
+            TableUtils.dropTable(connectionSource, Treino.class, true);
             // after we drop the old databases, we create the new ones
             onCreate(db, connectionSource);
         } catch (SQLException e) {
