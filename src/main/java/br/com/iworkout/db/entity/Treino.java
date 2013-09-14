@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 public class Treino {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     @Column
@@ -29,6 +31,9 @@ public class Treino {
 
     @Column
     private String valQtd;
+
+    @Column
+    private Date dtInc;
 
     @OneToMany(mappedBy = "serie", fetch = FetchType.EAGER)
     private List<Serie> series;
@@ -79,5 +84,13 @@ public class Treino {
 
     public void setSeries(List<Serie> series) {
         this.series = series;
+    }
+
+    public Date getDtInc() {
+        return dtInc;
+    }
+
+    public void setDtInc(Date dtInc) {
+        this.dtInc = dtInc;
     }
 }

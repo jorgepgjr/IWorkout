@@ -27,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
-        android:text="Rihanna Love the way lie"
-        android:textColor="#040404"
+        android:text="Projeto Verão"
+        android:textColor="#faffff"
         android:typeface="sans"
         android:textSize="15dip"
         android:textStyle="bold"/>
@@ -39,11 +39,11 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
-        android:textColor="#343434"
+        android:textColor="#fffffb"
         android:textSize="10dip"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
-        android:text="Just gona stand there and ..." />
+        android:text="14/09/2013" />
 
 
 

@@ -11,6 +11,8 @@ import com.actionbarsherlock.view.Menu;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.com.iworkout.db.entity.Exercicio;
@@ -75,7 +77,8 @@ public class HelloAndroidActivity extends DBFragmentActivity implements ActionBa
         Treino treino = new Treino();
         treino.setNome("Treino 1");
         treino.setSeries(series);
-        treinoDao.create(new Treino());
+        treino.setDtInc(new Date());
+        treinoDao.create(treino);
 
     }
 

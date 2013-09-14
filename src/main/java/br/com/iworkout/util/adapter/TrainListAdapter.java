@@ -21,8 +21,8 @@ public class TrainListAdapter extends BaseAdapter {
     private List<Treino> data;
 
     public TrainListAdapter(Activity activity, List<Treino> data) {
-        activity = activity;
-        data = data;
+        this.activity = activity;
+        this.data = data;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class TrainListAdapter extends BaseAdapter {
 
         // Setting all values in listview
         title.setText(treino.getNome());
-        subTitle.setText(treino.getValQtd());
+        subTitle.setText(treino.getDtInc().toString());
         return vi;
     }
 }
