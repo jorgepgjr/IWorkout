@@ -1,4 +1,4 @@
-package br.com.iworkout;
+package br.com.iworkout.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import com.actionbarsherlock.view.Menu;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import br.com.iworkout.R;
 import br.com.iworkout.db.entity.Exercicio;
 import br.com.iworkout.db.entity.Musculo;
 import br.com.iworkout.db.entity.Serie;

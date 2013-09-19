@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/choose_the_type_excercise"
+            android:id="@+id/textView"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentLeft="false"
+            android:layout_centerHorizontal="true"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/continue1"
+            android:id="@+id/button4"
+            android:layout_below="@+id/imageButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:background="@drawable/ic_abdominal"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/textView"
+            android:adjustViewBounds="false"
+            android:clickable="true"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton2"
+            android:background="@drawable/ic_abdominal"
+            android:layout_above="@+id/button4"
+            android:layout_toRightOf="@+id/imageButton"
+            android:layout_margin="10dp"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:background="@drawable/ic_abdominal"
+            android:layout_margin="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton4"
+            android:background="@drawable/ic_abdominal"
+            android:layout_margin="10dp"
+            android:layout_toLeftOf="@+id/imageButton3"
+            android:layout_below="@+id/textView"/>
+
+</RelativeLayout>

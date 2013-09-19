@@ -1,7 +1,6 @@
-package br.com.iworkout;
+package br.com.iworkout.activity;
 
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import br.com.iworkout.db.DatabaseHelper;
@@ -9,7 +8,7 @@ import br.com.iworkout.db.DatabaseHelper;
 /**
  * Created by Jorge on 10/07/13.
  */
-public class DBFragmentActivity extends RoboSherlockFragmentActivity{
+public class DBActivity extends RoboSherlockActivity {
 
     private DatabaseHelper databaseHelper = null;
 

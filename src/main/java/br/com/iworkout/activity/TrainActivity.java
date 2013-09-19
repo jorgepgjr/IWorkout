@@ -1,18 +1,17 @@
-package br.com.iworkout;
+package br.com.iworkout.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
 
 
-import java.util.Arrays;
 import java.util.List;
 
+import br.com.iworkout.R;
+import br.com.iworkout.activity.DBFragmentActivity;
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.MyDialogFragment;
 import br.com.iworkout.util.adapter.TrainListAdapter;
@@ -26,6 +25,9 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
     @InjectView(R.id.list)
     ListView list;
 
+//    @InjectView(R.id.spinner)
+//    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,12 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
             list.setAdapter(adapter);
         }
 //        showNoTrainsDialog();
+    }
+
+
+    public void onClickNewTrain(View view){
+        Intent intent = new Intent(this, NewTrainActivity.class);
+        startActivity(intent);
     }
 
     void showNoTrainsDialog() {
