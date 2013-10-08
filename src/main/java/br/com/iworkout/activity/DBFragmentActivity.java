@@ -1,6 +1,8 @@
 package br.com.iworkout.activity;
 
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 

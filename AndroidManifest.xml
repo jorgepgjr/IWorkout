@@ -28,11 +28,25 @@
                 android:value=".HelloAndroidActivity" />
         </activity>
 
-        <activity android:name=".activity.NewTrainActivity"
+        <activity android:name=".activity.ChooseMuscleActivity"
                 android:parentActivityName=".TrainActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".TrainActivity" />
+        </activity>
+
+        <activity android:name=".activity.ChooseExercicioActivity"
+                  android:parentActivityName=".ChooseMuscleActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ChooseMuscleActivity" />
+        </activity>
+
+        <activity android:name=".activity.ChooseSerieActivity"
+                  android:parentActivityName=".ChooseExercicioActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".ChooseExercicioActivity" />
         </activity>
     </application>
 

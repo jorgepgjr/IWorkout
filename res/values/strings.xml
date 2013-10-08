@@ -12,6 +12,7 @@
     <string name="edit">Editar</string>
     <string name="train">Treinar</string>
     <string name="continue1">Avancar</string>
-    <string name="choose_the_type_excercise">Escolha o tipo de exercício do treino:</string>
+    <string name="choose_the_type_excercise">Escolha o tipo de exercicio do treino:</string>
+    <string name="novo">Novo</string>
 
 </resources>

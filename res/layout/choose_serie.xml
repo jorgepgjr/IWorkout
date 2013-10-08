@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Top-level content view for the simple fragment sample. -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:padding="4dip"
+     android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+
+        <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="left|top"
+                android:text="Quantas repetições?"
+                android:layout_alignParentLeft="true"
+                android:paddingBottom="10px"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="0"
+            android:layout_gravity="left|center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="top|center_horizontal"
+            android:text="Quantas séries?"
+            android:layout_below="@+id/text"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+    <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="left|top"
+            android:text="Quantas repetições?"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+    <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/ok"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textView6"
+            android:layout_alignParentLeft="true">
+
+        <requestFocus/>
+    </Button>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="00"
+            android:id="@+id/textView2"
+            android:layout_alignTop="@+id/text"
+            android:layout_alignRight="@+id/button"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="00"
+            android:id="@+id/textView3"
+            android:layout_alignTop="@+id/textView"
+            android:layout_alignRight="@+id/textView2"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="00"
+            android:id="@+id/textView4"
+            android:layout_alignTop="@+id/textView6"
+            android:layout_alignRight="@+id/button"/>
+
+    <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/cancel"
+            android:layout_alignBottom="@+id/button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true">
+
+        <requestFocus/>
+    </Button>
+
+</RelativeLayout>

@@ -11,7 +11,6 @@ import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogF
 import java.util.List;
 
 import br.com.iworkout.R;
-import br.com.iworkout.activity.DBFragmentActivity;
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.MyDialogFragment;
 import br.com.iworkout.util.adapter.TrainListAdapter;
@@ -41,7 +40,7 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
 
 
     public void onClickNewTrain(View view){
-        Intent intent = new Intent(this, NewTrainActivity.class);
+        Intent intent = new Intent(this, ChooseMuscleActivity.class);
         startActivity(intent);
     }
 

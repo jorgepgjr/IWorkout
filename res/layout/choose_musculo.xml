@@ -10,23 +10,23 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/choose_the_type_excercise"
             android:id="@+id/textView"
-            android:layout_below="@+id/editText"
+            android:layout_below="@+id/nomeTreino"
             android:layout_alignParentLeft="false"
             android:layout_centerHorizontal="true"/>
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/continue1"
+            android:text="@string/novo"
             android:id="@+id/button4"
-            android:layout_below="@+id/imageButton"
+            android:layout_below="@+id/biceps"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"/>
 
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/nomeTreino"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
@@ -35,14 +35,15 @@
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
+            android:id="@+id/biceps"
             android:background="@drawable/ic_abdominal"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_margin="10dp"
             android:layout_below="@+id/textView"
             android:adjustViewBounds="false"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:onClick="muculoClick"/>
 
     <ImageButton
             android:layout_width="wrap_content"
@@ -50,7 +51,7 @@
             android:id="@+id/imageButton2"
             android:background="@drawable/ic_abdominal"
             android:layout_above="@+id/button4"
-            android:layout_toRightOf="@+id/imageButton"
+            android:layout_toRightOf="@+id/biceps"
             android:layout_margin="10dp"/>
 
     <ImageButton
