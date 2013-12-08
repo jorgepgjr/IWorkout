@@ -22,12 +22,17 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
 
 import br.com.iworkout.R;
+import roboguice.inject.InjectView;
 
 public class SerieDialog extends RoboSherlockDialogFragment {
+
+    TextView repeticoes;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,16 +43,43 @@ public class SerieDialog extends RoboSherlockDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.choose_serie, container, false);
-//        View tv = v.findViewById(R.id.text);
-//
+        repeticoes = (TextView) v.findViewById(R.id.repiticoes);
+        View.OnClickListener a = createDecreaseListener();
 //        // watch for button clicks.
-//        button button = (button)v.findviewbyid(r.id.show);
-//        button.setonclicklistener(new onclicklistener() {
-//            public void onclick(view v) {
-//
-//            }
-//        });
+        ImageButton repeatDecrease = (ImageButton) v.findViewById(R.id.repeatDecrease);
+        repeatDecrease.setOnClickListener(a);
+
+        ImageButton repeatIncrease = (ImageButton) v.findViewById(R.id.repeatIncrease);
+        repeatIncrease.setOnClickListener(createIncreaseListener());
+
+
         return v;
+    }
+
+    private View.OnClickListener createDecreaseListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = view.getId();
+                switch (id){
+                    case R.id.repeatDecrease:
+                        int v = Integer.valueOf(repeticoes.getText().toString());
+                        repeticoes.setText(String.valueOf(v + 1));
+                        break;
+                }
+            }
+        };
+    }
+
+    private View.OnClickListener createIncreaseListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.getId();
+                //TODO: Pelo id aumenta o numero;
+//                repeticoes.setText(Integer.valueOf(String.valueOf(repeticoes.getText())) + 1);
+            }
+        };
     }
 
     @Override
