@@ -1,10 +1,13 @@
 package br.com.iworkout.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
 
@@ -23,17 +26,21 @@ public class ChooseExercicioActivity extends DBFragmentActivity implements Serie
     }
 
     public void saveExercicioClick(View view){
-        SerieDialog dialog = new SerieDialog();
+        DialogFragment dialog = new SerieDialog();
         dialog.show(getSupportFragmentManager(), "Serie Dialog");
     }
 
     @Override
-    public void onDialogPositiveClick(RoboSherlockDialogFragment dialog) {
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        Toast toast = Toast.makeText(getApplicationContext(), "text", Toast.LENGTH_LONG);
+        toast.show();
         dialog.dismiss();
     }
 
     @Override
-    public void onDialogNegativeClick(RoboSherlockDialogFragment dialog) {
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        Toast toast = Toast.makeText(getApplicationContext(), "text", Toast.LENGTH_LONG);
+        toast.show();
         dialog.dismiss();
     }
 }

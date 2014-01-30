@@ -62,21 +62,22 @@
             android:layout_gravity="left"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:gravity="left|top"
-            android:text="Quantas repetições?"
+            android:text="Peso?"
             android:layout_below="@+id/textView"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:textColor="@android:color/background_dark"/>
 
     <Button
-            android:id="@+id/button"
+            android:id="@+id/ok"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="@string/ok"
             android:layout_below="@+id/textView6"
-            android:layout_toRightOf="@+id/button2"
-            android:textColor="@android:color/background_dark">
+            android:textColor="@android:color/background_dark"
+            android:layout_alignRight="@+id/pesoIncrease"
+            android:layout_toRightOf="@+id/text">
 
         <requestFocus/>
     </Button>
@@ -85,19 +86,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="03"
+            android:text="15"
             android:id="@+id/repiticoes"
-            android:layout_alignTop="@+id/text"
             android:textColor="#0b0b0b"
-            android:layout_alignRight="@+id/button2"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignBottom="@+id/repeatIncrease"
+            android:layout_toLeftOf="@+id/repeatIncrease"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="00"
-            android:id="@+id/textView3"
+            android:text="03"
+            android:id="@+id/serie"
             android:layout_alignTop="@+id/textView"
             android:layout_alignRight="@+id/repiticoes"
             android:textColor="#0b0b0b"/>
@@ -106,21 +106,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="00"
-            android:id="@+id/textView4"
+            android:text="10"
+            android:id="@+id/peso"
+            android:textColor="#0b0b0b"
             android:layout_alignTop="@+id/textView6"
-            android:layout_alignRight="@+id/button"
-            android:textColor="#0b0b0b"/>
+            android:layout_toRightOf="@+id/serieDecrease"/>
 
     <Button
-            android:id="@+id/button2"
+            android:id="@+id/cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="@string/cancel"
             android:layout_below="@+id/textView6"
-            android:layout_alignRight="@+id/textView6"
-            android:textColor="@android:color/background_dark">
+            android:textColor="@android:color/background_dark"
+            android:layout_toLeftOf="@+id/ok">
 
         <requestFocus/>
     </Button>
@@ -129,16 +129,52 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/repeatDecrease"
-            android:layout_toLeftOf="@+id/repiticoes"
+            android:src="@drawable/arrow_left"
             android:layout_alignBottom="@+id/repiticoes"
-            android:src="@drawable/arrow_left"/>
+            android:layout_toLeftOf="@+id/repiticoes"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/serieDecrease"
+            android:src="@drawable/arrow_left"
+            android:layout_toLeftOf="@+id/serie"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_below="@+id/text"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pesoDecrease"
+            android:src="@drawable/arrow_left"
+            android:layout_alignTop="@+id/pesoIncrease"
+            android:layout_alignLeft="@+id/serieDecrease"
+            android:layout_alignBottom="@+id/textView6"/>
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/repeatIncrease"
-            android:layout_alignTop="@+id/repeatDecrease"
-            android:layout_toRightOf="@+id/button"
-            android:layout_alignBottom="@+id/repiticoes"/>
+            android:src="@drawable/arrow_left"
+            android:layout_alignBottom="@+id/text"
+            android:layout_alignParentRight="true"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/serieIncrease"
+            android:src="@drawable/arrow_left"
+            android:layout_toRightOf="@+id/serie"
+            android:layout_below="@+id/text"
+            android:layout_alignBottom="@+id/serieDecrease"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pesoIncrease"
+            android:src="@drawable/arrow_left"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/textView6"/>
 
 </RelativeLayout>

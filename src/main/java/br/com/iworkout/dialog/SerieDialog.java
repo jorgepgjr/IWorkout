@@ -17,11 +17,15 @@
 package br.com.iworkout.dialog;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -30,9 +34,13 @@ import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogF
 import br.com.iworkout.R;
 import roboguice.inject.InjectView;
 
-public class SerieDialog extends RoboSherlockDialogFragment {
+public class SerieDialog extends DialogFragment {
 
     TextView repeticoes;
+    TextView serie;
+    TextView peso;
+    // Use this instance of the interface to deliver action events
+    NoticeDialogListener mListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,40 +52,68 @@ public class SerieDialog extends RoboSherlockDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.choose_serie, container, false);
         repeticoes = (TextView) v.findViewById(R.id.repiticoes);
-        View.OnClickListener a = createDecreaseListener();
-//        // watch for button clicks.
+        serie = (TextView) v.findViewById(R.id.serie);
+        peso = (TextView) v.findViewById(R.id.peso);
+
+
+        // watch for button clicks.
         ImageButton repeatDecrease = (ImageButton) v.findViewById(R.id.repeatDecrease);
-        repeatDecrease.setOnClickListener(a);
-
+        repeatDecrease.setOnClickListener(createClickListener());
         ImageButton repeatIncrease = (ImageButton) v.findViewById(R.id.repeatIncrease);
-        repeatIncrease.setOnClickListener(createIncreaseListener());
+        repeatIncrease.setOnClickListener(createClickListener());
 
+        ImageButton serieIncrease = (ImageButton) v.findViewById(R.id.serieIncrease);
+        serieIncrease.setOnClickListener(createClickListener());
+        ImageButton serieDecrease = (ImageButton) v.findViewById(R.id.serieDecrease);
+        serieDecrease.setOnClickListener(createClickListener());
 
+        ImageButton pesoIncrease = (ImageButton) v.findViewById(R.id.pesoIncrease);
+        pesoIncrease.setOnClickListener(createClickListener());
+        ImageButton pesoDecrease = (ImageButton) v.findViewById(R.id.pesoDecrease);
+        pesoDecrease.setOnClickListener(createClickListener());
+
+        Button ok = (Button) v.findViewById(R.id.ok);
+        ok.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onDialogPositiveClick(SerieDialog.this);
+            }
+        });
         return v;
     }
 
-    private View.OnClickListener createDecreaseListener() {
+    private View.OnClickListener createClickListener() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int id = view.getId();
+                Integer v = 0;
                 switch (id){
                     case R.id.repeatDecrease:
-                        int v = Integer.valueOf(repeticoes.getText().toString());
+                        v = Integer.valueOf(repeticoes.getText().toString());
+                        repeticoes.setText(String.valueOf(v - 1));
+                        break;
+                    case R.id.repeatIncrease:
+                        v = Integer.valueOf(repeticoes.getText().toString());
                         repeticoes.setText(String.valueOf(v + 1));
                         break;
+                    case R.id.serieDecrease:
+                        v = Integer.valueOf(serie.getText().toString());
+                        serie.setText(String.valueOf(v - 1));
+                        break;
+                    case R.id.serieIncrease:
+                        v = Integer.valueOf(serie.getText().toString());
+                        serie.setText(String.valueOf(v + 1));
+                        break;
+                    case R.id.pesoDecrease:
+                        v = Integer.valueOf(peso.getText().toString());
+                        peso.setText(String.valueOf(v - 1));
+                        break;
+                    case R.id.pesoIncrease:
+                        v = Integer.valueOf(peso.getText().toString());
+                        peso.setText(String.valueOf(v + 1));
+                        break;
                 }
-            }
-        };
-    }
-
-    private View.OnClickListener createIncreaseListener() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.getId();
-                //TODO: Pelo id aumenta o numero;
-//                repeticoes.setText(Integer.valueOf(String.valueOf(repeticoes.getText())) + 1);
             }
         };
     }
@@ -86,8 +122,6 @@ public class SerieDialog extends RoboSherlockDialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
-
-
 
     @Override
     public void onAttach(Activity activity) {
@@ -107,10 +141,8 @@ public class SerieDialog extends RoboSherlockDialogFragment {
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     public interface NoticeDialogListener {
-        public void onDialogPositiveClick(RoboSherlockDialogFragment dialog);
-        public void onDialogNegativeClick(RoboSherlockDialogFragment dialog);
+        public void onDialogPositiveClick(DialogFragment dialog);
+        public void onDialogNegativeClick(DialogFragment dialog);
     }
 
-    // Use this instance of the interface to deliver action events
-    NoticeDialogListener mListener;
 }
