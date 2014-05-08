@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
-import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
-
-
 import java.util.List;
 
 import br.com.iworkout.R;
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.MyDialogFragment;
 import br.com.iworkout.util.adapter.TrainListAdapter;
+import roboguice.fragment.RoboDialogFragment;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
@@ -41,6 +39,7 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
 
     public void onClickNewTrain(View view){
         Intent intent = new Intent(this, ChooseMuscleActivity.class);
+        intent.putExtra("newTreino",new Treino());
         startActivity(intent);
     }
 
@@ -69,12 +68,12 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
     }
 
     @Override
-    public void onDialogPositiveClick(RoboSherlockDialogFragment dialog) {
+    public void onDialogPositiveClick(RoboDialogFragment dialog) {
 
     }
 
     @Override
-    public void onDialogNegativeClick(RoboSherlockDialogFragment dialog) {
+    public void onDialogNegativeClick(RoboDialogFragment dialog) {
 
     }
 

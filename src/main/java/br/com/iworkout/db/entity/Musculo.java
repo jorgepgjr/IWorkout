@@ -3,13 +3,15 @@ package br.com.iworkout.db.entity;
 
 import com.j256.ormlite.field.DatabaseField;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Musculo {
+public class Musculo implements Serializable {
 
     @Id
     @GeneratedValue

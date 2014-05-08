@@ -1,17 +1,14 @@
 package br.com.iworkout.activity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockFragmentActivity;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import br.com.iworkout.db.DatabaseHelper;
+import roboguice.activity.RoboFragmentActivity;
 
 /**
  * Created by Jorge on 10/07/13.
  */
-public class DBFragmentActivity extends RoboSherlockFragmentActivity{
+public class DBFragmentActivity extends RoboFragmentActivity{
 
     private DatabaseHelper databaseHelper = null;
 

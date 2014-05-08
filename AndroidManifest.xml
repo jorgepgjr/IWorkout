@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/iworkout_icon"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock"
+        android:theme="@style/AppBaseTheme"
         android:debuggable="true">
         <activity android:name=".activity.HelloAndroidActivity" >
             <intent-filter>
@@ -47,6 +47,12 @@
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".ChooseExercicioActivity" />
+        </activity>
+        <activity android:name=".activity.NewTrainActivity"
+                  android:parentActivityName=".NewTrainActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".NewTrainActivity" />
         </activity>
     </application>
 

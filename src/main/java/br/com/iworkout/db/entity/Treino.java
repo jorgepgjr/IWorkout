@@ -1,6 +1,7 @@
 package br.com.iworkout.db.entity;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "treino")
-public class Treino {
+public class Treino implements Serializable{
 
     @Id
     @GeneratedValue

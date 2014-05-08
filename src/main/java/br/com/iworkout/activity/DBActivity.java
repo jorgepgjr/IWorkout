@@ -1,14 +1,14 @@
 package br.com.iworkout.activity;
 
-import com.github.rtyley.android.sherlock.roboguice.activity.RoboSherlockActivity;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import br.com.iworkout.db.DatabaseHelper;
+import roboguice.activity.RoboActivity;
 
 /**
  * Created by Jorge on 10/07/13.
  */
-public class DBActivity extends RoboSherlockActivity {
+public class DBActivity extends RoboActivity {
 
     private DatabaseHelper databaseHelper = null;
 

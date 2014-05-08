@@ -26,7 +26,6 @@ public class SessionManager {
 
     // All Shared Preferences Keys
     public static final String MUSCULO_ID = "musculoID";
-
     public static final String NOME_TREINO = "nomeTreino";
     // Constructor
     public SessionManager(Context context){
@@ -41,6 +40,14 @@ public class SessionManager {
 
     public void setEditor(SharedPreferences.Editor editor) {
         this.editor = editor;
+    }
+
+    public SharedPreferences getPref() {
+        return pref;
+    }
+
+    public void setPref(SharedPreferences pref) {
+        this.pref = pref;
     }
 
 }

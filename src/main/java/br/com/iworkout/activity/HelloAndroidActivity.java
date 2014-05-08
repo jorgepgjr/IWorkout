@@ -3,11 +3,8 @@ package br.com.iworkout.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.view.Menu;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import java.util.ArrayList;
@@ -23,7 +20,7 @@ import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
 @ContentView(R.layout.activity_main)
-public class HelloAndroidActivity extends DBFragmentActivity implements ActionBar.OnNavigationListener {
+public class HelloAndroidActivity extends DBFragmentActivity{
     @InjectView(R.id.imgBtnMyGym)
     ImageButton gym;
     @InjectView(R.id.imgBtnFriends)
@@ -37,11 +34,11 @@ public class HelloAndroidActivity extends DBFragmentActivity implements ActionBa
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ArrayAdapter<CharSequence> list = ArrayAdapter.createFromResource(getApplicationContext(), R.array.locations, R.layout.sherlock_spinner_dropdown_item);
-        list.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
-
-        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-        getSupportActionBar().setListNavigationCallbacks(list, this);
+//        list.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
+//        getSupportActionBar().setCustomView(R.layout.action_bar);
+//        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+//        getSupportActionBar().setListNavigationCallbacks(list, this);
     }
 
     public void onClickTrain(View view){
@@ -82,15 +79,5 @@ public class HelloAndroidActivity extends DBFragmentActivity implements ActionBa
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-        return false;
-    }
 }
 

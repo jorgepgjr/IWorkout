@@ -23,11 +23,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
-
 import br.com.iworkout.R;
+import roboguice.fragment.RoboDialogFragment;
 
-public class MyDialogFragment extends RoboSherlockDialogFragment {
+public class MyDialogFragment extends RoboDialogFragment{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,8 +74,8 @@ public class MyDialogFragment extends RoboSherlockDialogFragment {
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     public interface NoticeDialogListener {
-        public void onDialogPositiveClick(RoboSherlockDialogFragment dialog);
-        public void onDialogNegativeClick(RoboSherlockDialogFragment dialog);
+        public void onDialogPositiveClick(RoboDialogFragment dialog);
+        public void onDialogNegativeClick(RoboDialogFragment dialog);
     }
 
     // Use this instance of the interface to deliver action events

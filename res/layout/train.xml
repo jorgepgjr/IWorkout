@@ -3,7 +3,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
 
-    android:background="@drawable/background"
+
     android:layout_height="match_parent">
 
     <RelativeLayout android:id="@+id/topoTelaTreino"
@@ -15,7 +15,6 @@
             android:layout_width="wrap_content" />
         <TextView
             android:text="MONITORE FITNESS"
-            android:textColor="@color/abs__bright_foreground_disabled_holo_dark"
             android:layout_toRightOf="@id/logoTopo"
             android:layout_marginLeft="10dp"
             android:textSize="25dp"

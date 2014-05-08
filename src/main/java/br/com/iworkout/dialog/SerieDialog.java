@@ -17,9 +17,6 @@
 package br.com.iworkout.dialog;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -29,10 +26,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.github.rtyley.android.sherlock.roboguice.fragment.RoboSherlockDialogFragment;
-
 import br.com.iworkout.R;
-import roboguice.inject.InjectView;
 
 public class SerieDialog extends DialogFragment {
 
@@ -76,7 +70,7 @@ public class SerieDialog extends DialogFragment {
         ok.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mListener.onDialogPositiveClick(SerieDialog.this);
+                mListener.onDialogPositiveClick(SerieDialog.this, repeticoes,serie, peso );
             }
         });
         return v;
@@ -141,7 +135,7 @@ public class SerieDialog extends DialogFragment {
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     public interface NoticeDialogListener {
-        public void onDialogPositiveClick(DialogFragment dialog);
+        public void onDialogPositiveClick(DialogFragment dialog, TextView repeticoes, TextView serie, TextView peso);
         public void onDialogNegativeClick(DialogFragment dialog);
     }
 
