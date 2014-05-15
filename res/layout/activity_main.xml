@@ -51,35 +51,4 @@
             android:layout_alignRight="@+id/imgBtnResults"
             android:layout_marginTop="20dp"/>
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Ultimo treino"
-            android:id="@+id/txtLastTrain"
-            android:layout_below="@+id/imgBtnFriends"
-            android:layout_alignParentLeft="false"
-            android:layout_alignLeft="@+id/imgBtnFriends"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Meta:"
-            android:id="@+id/txtGoalLabel"
-            android:layout_below="@+id/txtLastTrain"
-            android:layout_alignLeft="@+id/txtLastTrain"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
-            android:id="@+id/txtGoal"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentLeft="false"
-            android:layout_below="@+id/txtLastTrain"
-            android:layout_toRightOf="@+id/txtGoalLabel"
-            android:layout_marginLeft="10dp"/>
-
 </RelativeLayout>

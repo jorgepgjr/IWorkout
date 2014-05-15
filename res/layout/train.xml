@@ -2,8 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-
-
+    android:background="@drawable/bg_main"
     android:layout_height="match_parent">
 
     <RelativeLayout android:id="@+id/topoTelaTreino"
@@ -51,33 +50,38 @@
         android:layout_centerHorizontal="true"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_new"
+        android:layout_width="150dp"
         android:id="@+id/button"
-        android:layout_below="@+id/spinner"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
-        android:onClick="onClickNewTrain"/>
+        android:onClick="onClickNewTrain"
+        android:background="@drawable/train_btn_cadastrar_novo"
+        android:layout_height="40dp"
+        android:layout_below="@+id/spinner"
+        android:layout_marginBottom="20dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
         android:id="@+id/button2"
-        android:layout_below="@+id/spinner"
         android:layout_toRightOf="@+id/button"
         android:layout_alignParentLeft="false"
-        android:layout_marginLeft="25dp"/>
+        android:background="@drawable/train_btn_editar"
+        android:layout_alignRight="@+id/IconeMonitoreTreino"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/spinner"
+        android:layout_marginLeft="10dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/train"
+        android:layout_height="40dp"
         android:id="@+id/button3"
-        android:layout_below="@+id/spinner"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:background="@drawable/train_btn_treinar"
+        android:layout_toRightOf="@+id/button2"
+        android:layout_marginLeft="14dp"
+        android:layout_below="@+id/spinner" />
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"

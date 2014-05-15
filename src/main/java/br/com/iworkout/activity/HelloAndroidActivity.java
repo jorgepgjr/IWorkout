@@ -20,7 +20,7 @@ import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
 @ContentView(R.layout.activity_main)
-public class HelloAndroidActivity extends DBFragmentActivity{
+public class HelloAndroidActivity extends  DBFragmentActivity{
     @InjectView(R.id.imgBtnMyGym)
     ImageButton gym;
     @InjectView(R.id.imgBtnFriends)

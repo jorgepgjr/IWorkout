@@ -5,15 +5,14 @@
     android:versionName="1.0-SNAPSHOT" >
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="16" />
+        android:minSdkVersion="7"
+        android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/iworkout_icon"
         android:label="@string/app_name"
-        android:theme="@style/AppBaseTheme"
-        android:debuggable="true">
+        android:theme="@style/AppBaseTheme">
         <activity android:name=".activity.HelloAndroidActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,34 +21,34 @@
         </activity>
 
         <activity android:name=".activity.TrainActivity"
-                android:parentActivityName=".HelloAndroidActivity">
+                android:parentActivityName=".activity.HelloAndroidActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HelloAndroidActivity" />
         </activity>
 
         <activity android:name=".activity.ChooseMuscleActivity"
-                android:parentActivityName=".TrainActivity">
+                android:parentActivityName=".activity.TrainActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".TrainActivity" />
         </activity>
 
         <activity android:name=".activity.ChooseExercicioActivity"
-                  android:parentActivityName=".ChooseMuscleActivity">
+                  android:parentActivityName="activity.ChooseMuscleActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".ChooseMuscleActivity" />
         </activity>
 
         <activity android:name=".activity.ChooseSerieActivity"
-                  android:parentActivityName=".ChooseExercicioActivity">
+                  android:parentActivityName="activity.ChooseExercicioActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".ChooseExercicioActivity" />
         </activity>
         <activity android:name=".activity.NewTrainActivity"
-                  android:parentActivityName=".NewTrainActivity">
+                  android:parentActivityName="activity.NewTrainActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".NewTrainActivity" />
