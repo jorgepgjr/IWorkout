@@ -1,14 +1,15 @@
 package br.com.iworkout.activity;
 
+import android.support.v4.app.FragmentActivity;
+
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
 import br.com.iworkout.db.DatabaseHelper;
-import roboguice.activity.RoboFragmentActivity;
 
 /**
  * Created by Jorge on 10/07/13.
  */
-public class DBFragmentActivity extends RoboFragmentActivity{
+public class DBFragmentActivity extends FragmentActivity {
 
     private DatabaseHelper databaseHelper = null;
 

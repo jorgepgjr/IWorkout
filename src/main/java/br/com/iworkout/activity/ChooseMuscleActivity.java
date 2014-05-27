@@ -1,14 +1,11 @@
 package br.com.iworkout.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.ListUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +16,10 @@ import br.com.iworkout.db.entity.Musculo;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.SessionManager;
-import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
 
 
-@ContentView(R.layout.choose_musculo)
 public class ChooseMuscleActivity extends DBFragmentActivity {
 
-    @InjectView(R.id.nomeTreino)
     EditText nomeTreino;
 
     SessionManager sessionManager;
@@ -34,6 +27,8 @@ public class ChooseMuscleActivity extends DBFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.choose_musculo);
+        nomeTreino = (EditText) findViewById(R.id.nomeTreino);
         sessionManager = new SessionManager(getApplicationContext());
 
     }

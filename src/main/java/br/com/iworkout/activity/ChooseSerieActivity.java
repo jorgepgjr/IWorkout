@@ -6,18 +6,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import br.com.iworkout.R;
-import roboguice.inject.InjectView;
 
 public class ChooseSerieActivity extends DBFragmentActivity {
-    @InjectView(R.id.repeatDecrease)
-    ImageButton repeatDecrease;
 
-    @InjectView(R.id.repiticoes)
+    ImageButton repeatDecrease;
     TextView repeticoes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        repeatDecrease = (ImageButton) findViewById(R.id.repeatDecrease);
+        repeticoes = (TextView) findViewById(R.id.repiticoes);
     }
 
     public void onClickRepeatDecrease(View view){

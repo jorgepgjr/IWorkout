@@ -24,9 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import br.com.iworkout.R;
-import roboguice.fragment.RoboDialogFragment;
 
-public class MyDialogFragment extends RoboDialogFragment{
+public class MyDialogFragment extends DialogFragment{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,8 +73,8 @@ public class MyDialogFragment extends RoboDialogFragment{
      * implement this interface in order to receive event callbacks.
      * Each method passes the DialogFragment in case the host needs to query it. */
     public interface NoticeDialogListener {
-        public void onDialogPositiveClick(RoboDialogFragment dialog);
-        public void onDialogNegativeClick(RoboDialogFragment dialog);
+        public void onDialogPositiveClick(DialogFragment dialog);
+        public void onDialogNegativeClick(DialogFragment dialog);
     }
 
     // Use this instance of the interface to deliver action events

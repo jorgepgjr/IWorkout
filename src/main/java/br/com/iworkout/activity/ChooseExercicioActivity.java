@@ -12,10 +12,8 @@ import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.dialog.SerieDialog;
 import br.com.iworkout.util.SessionManager;
-import roboguice.inject.ContentView;
 
 
-@ContentView(R.layout.choose_exercicio)
 public class ChooseExercicioActivity extends DBFragmentActivity implements SerieDialog.NoticeDialogListener {
 
     SessionManager sessionManager;
@@ -23,6 +21,7 @@ public class ChooseExercicioActivity extends DBFragmentActivity implements Serie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.choose_exercicio);
         sessionManager = new SessionManager(getApplicationContext());
     }
 

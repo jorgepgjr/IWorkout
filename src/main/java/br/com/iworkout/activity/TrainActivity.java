@@ -2,6 +2,7 @@ package br.com.iworkout.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.widget.ListView;
 
@@ -11,15 +12,10 @@ import br.com.iworkout.R;
 import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.MyDialogFragment;
 import br.com.iworkout.util.adapter.TrainListAdapter;
-import roboguice.fragment.RoboDialogFragment;
-import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
 
 
-@ContentView(R.layout.train)
 public class TrainActivity extends DBFragmentActivity implements MyDialogFragment.NoticeDialogListener{
 
-    @InjectView(R.id.list)
     ListView list;
 
 //    @InjectView(R.id.spinner)
@@ -28,6 +24,8 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.train);
+        list = (ListView) findViewById(R.id.list);
         List<Treino> treinos = getHelper().getTreinoDao().queryForAll();
         if (treinos != null && treinos.size() > 0){
             TrainListAdapter adapter = new TrainListAdapter(this,treinos);
@@ -68,12 +66,12 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
     }
 
     @Override
-    public void onDialogPositiveClick(RoboDialogFragment dialog) {
+    public void onDialogPositiveClick(DialogFragment dialog) {
 
     }
 
     @Override
-    public void onDialogNegativeClick(RoboDialogFragment dialog) {
+    public void onDialogNegativeClick(DialogFragment dialog) {
 
     }
 

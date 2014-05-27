@@ -16,23 +16,22 @@ import br.com.iworkout.db.entity.Exercicio;
 import br.com.iworkout.db.entity.Musculo;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
-import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
 
-@ContentView(R.layout.activity_main)
 public class HelloAndroidActivity extends  DBFragmentActivity{
-    @InjectView(R.id.imgBtnMyGym)
     ImageButton gym;
-    @InjectView(R.id.imgBtnFriends)
     ImageButton friends;
-    @InjectView(R.id.imgBtnResults)
     ImageButton results;
-    @InjectView(R.id.imgBtnTrain)
     ImageButton train;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+         gym = (ImageButton) findViewById(R.id.imgBtnMyGym);
+         friends = (ImageButton) findViewById(R.id.imgBtnFriends);
+         results = (ImageButton) findViewById(R.id.imgBtnResults);
+         train = (ImageButton) findViewById(R.id.imgBtnTrain);
+
 
 //        list.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
 //        getSupportActionBar().setCustomView(R.layout.action_bar);
