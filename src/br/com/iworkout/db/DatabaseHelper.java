@@ -5,14 +5,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import br.com.iworkout.db.entity.Exercicio;
 import br.com.iworkout.db.entity.Musculo;

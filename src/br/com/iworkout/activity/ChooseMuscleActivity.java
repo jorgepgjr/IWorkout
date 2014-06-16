@@ -18,7 +18,7 @@ import br.com.iworkout.db.entity.Treino;
 import br.com.iworkout.util.SessionManager;
 
 
-public class ChooseMuscleActivity extends DBFragmentActivity {
+public class ChooseMuscleActivity extends br.com.iworkout.activity.DBActivity {
 
     EditText nomeTreino;
 

@@ -2,12 +2,14 @@ package br.com.iworkout.util.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import br.com.iworkout.R;
@@ -55,7 +57,9 @@ public class TrainListAdapter extends BaseAdapter {
 
         // Setting all values in listview
         title.setText(treino.getNome());
-        subTitle.setText(treino.getDtInc().toString());
+        subTitle.setText(new SimpleDateFormat("dd/MM/yyy").format(treino.getDtInc()));
+
+
         return vi;
     }
 }

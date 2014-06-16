@@ -28,7 +28,7 @@
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
         android:text="Projeto Verão"
-        android:textColor="#faffff"
+        android:textColor="@android:color/black"
         android:typeface="sans"
         android:textSize="15dip"
         android:textStyle="bold"/>
@@ -39,19 +39,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
-        android:textColor="#fffffb"
+        android:textColor="@android:color/black"
         android:textSize="10dip"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
         android:text="14/09/2013" />
-
-
-
-<!-- Rightend Arrow -->
-<ImageView android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:src="@drawable/arrow_right"
-           android:layout_alignParentRight="true"
-           android:layout_centerVertical="true"/>
 
 </RelativeLayout>
