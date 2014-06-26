@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ import br.com.iworkout.util.adapter.TrainListAdapter;
 public class TrainActivity extends DBFragmentActivity implements MyDialogFragment.NoticeDialogListener{
 
     ListView list;
+    private List<Treino> treinos;
 
 //    @InjectView(R.id.spinner)
 //    Spinner spinner;
@@ -26,12 +29,20 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.train);
         list = (ListView) findViewById(R.id.list);
-        List<Treino> treinos = getHelper().getTreinoDao().queryForAll();
+        treinos = getHelper().getTreinoDao().queryForAll();
         if (treinos != null && treinos.size() > 0){
             TrainListAdapter adapter = new TrainListAdapter(this,treinos);
             list.setAdapter(adapter);
         }
 //        showNoTrainsDialog();
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(TrainActivity.this, TrainDetailsActivity.class);
+                intent.putExtra("TREINO_ID", parent.getItemIdAtPosition(position));
+                startActivity(intent);
+            }
+        });
     }
 
 

@@ -1,23 +1,14 @@
 package br.com.iworkout.activity;
 
+import android.app.Notification;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.j256.ormlite.dao.RuntimeExceptionDao;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import br.com.iworkout.R;
-import br.com.iworkout.db.entity.Exercicio;
-import br.com.iworkout.db.entity.Musculo;
-import br.com.iworkout.db.entity.Serie;
-import br.com.iworkout.db.entity.Treino;
+import br.com.iworkout.util.ActionBarHelper;
 
 public class HelloAndroidActivity extends ActionBarActivity{
     ImageButton gym;
@@ -28,15 +19,14 @@ public class HelloAndroidActivity extends ActionBarActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActionBarHelper.createActionBar(this);
         setContentView(R.layout.activity_main);
          gym = (ImageButton) findViewById(R.id.imgBtnMyGym);
          friends = (ImageButton) findViewById(R.id.imgBtnFriends);
          results = (ImageButton) findViewById(R.id.imgBtnResults);
          train = (ImageButton) findViewById(R.id.imgBtnTrain);
 
-        getSupportActionBar().setCustomView(R.layout.action_bar);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
+
 //        list.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
 //        getSupportActionBar().setCustomView(R.layout.action_bar);
 //        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);

@@ -53,6 +53,12 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value=".NewTrainActivity" />
         </activity>
+        <activity android:name=".activity.TrainDetailsActivity"
+            android:parentActivityName=".activity.TrainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NewTrainActivity" />
+        </activity>
     </application>
 
 </manifest>

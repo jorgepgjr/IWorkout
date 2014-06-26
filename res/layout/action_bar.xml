@@ -24,6 +24,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
         android:layout_alignParentLeft="false"
-            android:background="@drawable/divtituloinfo"
+            android:background="@drawable/div_barra_completa"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>

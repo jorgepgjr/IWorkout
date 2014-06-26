@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import java.util.Date;
+
 import br.com.iworkout.R;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
@@ -17,11 +20,17 @@ import br.com.iworkout.util.SessionManager;
 public class ChooseExercicioActivity extends DBFragmentActivity implements SerieDialog.NoticeDialogListener {
 
     SessionManager sessionManager;
+    Treino newTreino;
+    Serie newSerie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_exercicio);
+        TextView nomeTreino = (TextView) findViewById(R.id.trainName);
+        newTreino = (Treino) getIntent().getSerializableExtra("newTreino");
+        newSerie = (Serie) getIntent().getSerializableExtra("newSerie");
+        nomeTreino.setText(newTreino.getNome());
         sessionManager = new SessionManager(getApplicationContext());
     }
 
@@ -32,8 +41,9 @@ public class ChooseExercicioActivity extends DBFragmentActivity implements Serie
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog, TextView repeticoes, TextView serie, TextView peso){
-        final Treino newTreino = (Treino) getIntent().getSerializableExtra("newTreino");
-        final Serie newSerie = newTreino.getSeries().get(newTreino.getSeries().size() -1);
+        //Ver se náo vai dar pau
+//        newTreino = (Treino) getIntent().getSerializableExtra("newTreino");
+
         newSerie.setRepiticoes(Long.valueOf(repeticoes.getText().toString()));
         newSerie.setCarga(Long.valueOf(peso.getText().toString()));
         newSerie.setQtd(Long.valueOf(serie.getText().toString()));
@@ -42,9 +52,18 @@ public class ChooseExercicioActivity extends DBFragmentActivity implements Serie
 //        Toast toast = Toast.makeText(getApplicationContext(), musculoId.toString(), Toast.LENGTH_LONG);
 //        toast.show();
         dialog.dismiss();
+        if (newTreino.getId() == null){
+            newTreino.setDtInc(new Date());
+        }else{
+            newTreino.setDtAlt(new Date());
+        }
+        //TODO: Salvar exercicio
 
-        Intent intent = new Intent(this, NewTrainActivity.class);
-        intent.putExtra("newTreino", newTreino);
+        getHelper().getTreinoDao().createOrUpdate(newTreino);
+        newSerie.setTreino(newTreino);
+        getHelper().getSerieDao().createOrUpdate(newSerie);
+        Intent intent = new Intent(this, TrainDetailsActivity.class);
+        intent.putExtra("TREINO_ID", newTreino.getId());
         startActivity(intent);
     }
 

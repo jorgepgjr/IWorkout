@@ -8,26 +8,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#ffda7314"
             android:text="Treino:"
             android:id="@+id/trainNameLabel"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/biceps"
+            android:layout_toRightOf="@+id/abdominal"
             android:layout_marginTop="21dp"/>
 
     <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Salva Exercício"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/train_btn_salva_exercicio"
             android:id="@+id/saveExercicio"
             android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/biceps"
+            android:layout_centerHorizontal="true"
             android:onClick="saveExercicioClick" />
 
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/biceps"
-            android:background="@drawable/ic_abdominal"
+            android:id="@+id/abdominal"
+            android:background="@drawable/musculo_abdominal"
             android:layout_margin="10dp"
             android:adjustViewBounds="false"
             android:clickable="true"
@@ -49,8 +50,9 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Selecione os exercícios:"
             android:id="@+id/textView"
-            android:layout_below="@+id/biceps"
-            android:layout_alignParentLeft="true"/>
+            android:layout_below="@+id/abdominal"
+            android:layout_alignParentLeft="true"
+        android:textColor="#ffda7314" />
 
     <CheckBox
             android:layout_width="wrap_content"

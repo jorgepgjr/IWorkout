@@ -1,43 +1,49 @@
 package br.com.iworkout.db.entity;
 
 
+import com.j256.ormlite.dao.ForeignCollection;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "treino")
+
+@DatabaseTable(tableName = "treino")
 public class Treino implements Serializable{
 
-    @Id
-    @GeneratedValue
+    @DatabaseField(generatedId = true)
     private Long id;
 
-    @Column
+    @DatabaseField
     private String nome;
 
-    @Column
+    @DatabaseField
     private Date valInic;
 
-    @Column
+    @DatabaseField
     private Date valFim;
 
-    @Column
+    @DatabaseField
     private String valQtd;
 
-    @Column
+    @DatabaseField
     private Date dtInc;
 
-    @OneToMany(mappedBy = "serie", fetch = FetchType.EAGER)
-    private List<Serie> series;
+    @DatabaseField
+    private Date dtAlt;
+
+    @ForeignCollectionField(columnName = "id")
+    private ForeignCollection<Serie> series;
 
     public void setNome(String nome) {
         this.nome = nome;
@@ -79,19 +85,27 @@ public class Treino implements Serializable{
         this.valQtd = valQtd;
     }
 
-    public List<Serie> getSeries() {
-        return series;
-    }
-
-    public void setSeries(List<Serie> series) {
-        this.series = series;
-    }
-
     public Date getDtInc() {
         return dtInc;
     }
 
     public void setDtInc(Date dtInc) {
         this.dtInc = dtInc;
+    }
+
+    public ForeignCollection<Serie> getSeries() {
+        return series;
+    }
+
+    public void setSeries(ForeignCollection<Serie> series) {
+        this.series = series;
+    }
+
+    public Date getDtAlt() {
+        return dtAlt;
+    }
+
+    public void setDtAlt(Date dtAlt) {
+        this.dtAlt = dtAlt;
     }
 }

@@ -1,6 +1,9 @@
 package br.com.iworkout.db.entity;
 
 
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -13,28 +16,29 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "serie")
+@DatabaseTable(tableName = "serie")
 public class Serie implements Serializable{
 
-    @Id
-    @GeneratedValue
+    @DatabaseField(generatedId = true)
     private Long id;
 
-    @Column
+    @DatabaseField
     private Long qtd;
 
-    @Column
+    @DatabaseField
     private Long repiticoes;
 
-    @Column
+    @DatabaseField
     private String intervalo;
 
-    @Column
+    @DatabaseField
     private Long carga;
 
-    @OneToOne(mappedBy = "exercicio", fetch = FetchType.EAGER)
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
     private Exercicio exercicio;
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    private Treino treino;
 
     public Long getId() {
         return id;
@@ -82,5 +86,13 @@ public class Serie implements Serializable{
 
     public void setExercicio(Exercicio exercicio) {
         this.exercicio = exercicio;
+    }
+
+    public Treino getTreino() {
+        return treino;
+    }
+
+    public void setTreino(Treino treino) {
+        this.treino = treino;
     }
 }

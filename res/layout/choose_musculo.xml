@@ -14,15 +14,6 @@
             android:layout_alignParentLeft="false"
             android:layout_centerHorizontal="true"/>
 
-    Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/novo"
-            android:id="@+id/button4"
-            android:layout_below="@+id/biceps"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"/>
-
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,10 +24,10 @@
             android:layout_marginTop="15dp"/>
 
     <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:id="@+id/biceps"
-            android:background="@drawable/ic_abdominal"
+            android:id="@+id/abdominal"
+            android:background="@drawable/musculo_abdominal"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_margin="10dp"
@@ -45,31 +36,16 @@
             android:clickable="true"
             android:onClick="musculoClick"/>
 
-    ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/repeatIncrease"
-            android:background="@drawable/ic_abdominal"
-            android:layout_above="@+id/button4"
-            android:layout_toRightOf="@+id/biceps"
-            android:layout_margin="10dp"/>
-
-    ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton3"
-            android:background="@drawable/ic_abdominal"
-            android:layout_margin="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/textView"/>
-
-    ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton4"
-            android:background="@drawable/ic_abdominal"
-            android:layout_margin="10dp"
-            android:layout_toLeftOf="@+id/imageButton3"
-            android:layout_below="@+id/textView"/>
+    <ImageButton
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/biceps"
+        android:background="@drawable/musculo_biceps"
+        android:adjustViewBounds="false"
+        android:clickable="true"
+        android:onClick="musculoClick"
+        android:layout_alignTop="@+id/abdominal"
+        android:layout_toRightOf="@+id/abdominal"
+        android:layout_alignBottom="@+id/abdominal" />
 
 </RelativeLayout>

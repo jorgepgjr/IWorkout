@@ -25,7 +25,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 28;
 
     // the DAO object we use to access the Musculo table
     private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
@@ -49,6 +49,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Exercicio.class);
             TableUtils.createTable(connectionSource, Serie.class);
             TableUtils.createTable(connectionSource, Treino.class);
+
+            fillMusculo();
+            fillExercicio();
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -74,6 +77,19 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
             throw new RuntimeException(e);
         }
+    }
+
+    public void fillMusculo(){
+        getMusculoDao().create(new Musculo("Abdominal"));
+        getMusculoDao().create(new Musculo("Biceps"));
+    }
+
+    public void fillExercicio(){
+        getExercicioDao().create(new Exercicio("Rosca Direta", getMusculoDao().queryForId(2)));
+        getExercicioDao().create(new Exercicio("Rosca Alternada", getMusculoDao().queryForId(2)));
+
+        getExercicioDao().create(new Exercicio("Simples", getMusculoDao().queryForId(1)));
+        getExercicioDao().create(new Exercicio("Canivete", getMusculoDao().queryForId(1)));
     }
 
     /**

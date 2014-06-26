@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.j256.ormlite.dao.ForeignCollection;
+
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import br.com.iworkout.R;
 import br.com.iworkout.db.entity.Exercicio;
@@ -34,25 +36,26 @@ public class ChooseMuscleActivity extends br.com.iworkout.activity.DBActivity {
     }
 
     public void musculoClick(View view){
-        final Treino newTreino = (Treino) getIntent().getSerializableExtra("newTreino");
-        final List<Serie> series;
-        final Serie serie = new Serie();
-        final Exercicio exercicio = new Exercicio();
-        final List musculos = new ArrayList<Musculo>();
-        final Musculo musculo = new Musculo("Abdominal");
+        Integer musculoId = null;
 
-        if (CollectionUtils.isEmpty(newTreino.getSeries())){
-            series = new ArrayList<Serie>();
-        }else{
-            series = newTreino.getSeries();
+        switch (view.getId()){
+            case R.id.abdominal:
+                musculoId = 1;
+                break;
+            case R.id.biceps:
+                musculoId = 2;
+                break;
         }
 
+        final Musculo musculo = super.getHelper().getMusculoDao().queryForId(musculoId);
+        final Treino newTreino = (Treino) getIntent().getSerializableExtra("newTreino");
         newTreino.setNome(nomeTreino.getText().toString());
-        musculos.add(musculo); //TODO: pegar do banco o nome do exercicio, ou ver outra alternativa
-        exercicio.setMusculos(musculos);
+
+        final Serie serie = new Serie();
+        final Exercicio exercicio = new Exercicio();
+
+        exercicio.setMusculo(musculo);
         serie.setExercicio(exercicio);
-        series.add(serie);
-        newTreino.setSeries(series);
 
 //        SharedPreferences.Editor editor = sessionManager.getEditor();
 //        editor.putString(SessionManager.NOME_TREINO, nomeTreino.getText().toString());
@@ -60,6 +63,7 @@ public class ChooseMuscleActivity extends br.com.iworkout.activity.DBActivity {
 //        editor.commit();
         Intent intent = new Intent(this, ChooseExercicioActivity.class);
         intent.putExtra("newTreino", newTreino);
+        intent.putExtra("newSerie", serie);
         startActivity(intent);
     }
 }

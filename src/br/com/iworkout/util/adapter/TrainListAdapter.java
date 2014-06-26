@@ -34,12 +34,12 @@ public class TrainListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return i;
+        return data.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return i;
+        return data.get(i).getId();
     }
 
     @Override
@@ -62,4 +62,6 @@ public class TrainListAdapter extends BaseAdapter {
 
         return vi;
     }
+
+
 }
