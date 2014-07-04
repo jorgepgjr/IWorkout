@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import br.com.iworkout.R;
 import br.com.iworkout.util.ActionBarHelper;
 
-public class HelloAndroidActivity extends ActionBarActivity{
+public class MenuActivity extends ActionBarActivity{
     ImageButton gym;
     ImageButton friends;
     ImageButton results;

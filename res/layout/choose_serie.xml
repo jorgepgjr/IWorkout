@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -17,164 +16,244 @@
 <!-- Top-level content view for the simple fragment sample. -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:padding="4dip"
-     android:layout_width="match_parent" android:layout_height="match_parent"
-     android:background="#ffffff">
+    android:padding="4dip"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
+
+    <TextView
+        android:id="@+id/musculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Bíceps"
+        android:layout_alignParentLeft="true"
+        android:textColor="#ffda7314"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/exercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/musculo"
+        android:layout_alignTop="@+id/musculo"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Martelo"
+        android:textColor="#ffda7314" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:background="@drawable/div_barra_completa"
+        android:layout_below="@+id/musculo"
+        android:layout_marginBottom="30dp" />
+
+    <RelativeLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Quantas repetições?"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/repeatDecrease"
+            android:src="@drawable/train_serie_seta_esquerda"
+            android:layout_alignTop="@+id/text"
+            android:layout_toLeftOf="@+id/repiticoes"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp"
+            android:text="15"
+            android:id="@+id/repiticoes"
+            android:layout_alignBottom="@+id/repeatIncrease"
+            android:layout_toLeftOf="@+id/repeatIncrease" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/repeatIncrease"
+            android:src="@drawable/train_serie_seta_direita"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/div1"
+            android:src="@drawable/div_cinza_claro"
+            android:layout_below="@+id/text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
         <TextView
-                android:id="@+id/text"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:layout_gravity="left"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="left|top"
-                android:text="Quantas repetições?"
-                android:layout_alignParentLeft="true"
-                android:paddingBottom="10px"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:textColor="@android:color/background_dark"/>
-
-
-    <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_weight="0"
             android:layout_gravity="left|center_vertical"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:gravity="top|center_horizontal"
             android:text="Quantas séries?"
-            android:layout_below="@+id/text"
+            android:layout_below="@+id/div1"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textColor="@android:color/background_dark"/>
+            android:textColor="@android:color/background_dark" />
 
-    <TextView
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/serieDecrease"
+            android:src="@drawable/train_serie_seta_esquerda"
+            android:layout_toLeftOf="@+id/serie"
+            android:layout_alignTop="@+id/textView"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="03"
+            android:id="@+id/serie"
+            android:layout_alignTop="@+id/textView"
+            android:layout_alignRight="@+id/repiticoes"
+            android:textColor="#0b0b0b" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/serieIncrease"
+            android:src="@drawable/train_serie_seta_direita"
+            android:layout_toRightOf="@+id/serie"
+            android:layout_below="@+id/text"
+            android:layout_alignTop="@+id/textView"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/div2"
+            android:src="@drawable/div_cinza_claro"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_weight="1"
             android:layout_gravity="left"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:gravity="left|top"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Peso?"
-            android:layout_below="@+id/textView"
+            android:layout_below="@+id/div2"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textColor="@android:color/background_dark"/>
+            android:textColor="@android:color/background_dark" />
 
-    <Button
-            android:id="@+id/ok"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="@string/ok"
-            android:layout_below="@+id/textView6"
-            android:textColor="@android:color/background_dark"
-            android:layout_alignRight="@+id/pesoIncrease"
-            android:layout_toRightOf="@+id/text">
-
-        <requestFocus/>
-    </Button>
-
-    <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="15"
-            android:id="@+id/repiticoes"
-            android:textColor="#0b0b0b"
-            android:layout_alignBottom="@+id/repeatIncrease"
-            android:layout_toLeftOf="@+id/repeatIncrease"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="03"
-            android:id="@+id/serie"
-            android:layout_alignTop="@+id/textView"
-            android:layout_alignRight="@+id/repiticoes"
-            android:textColor="#0b0b0b"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp"
             android:text="10"
             android:id="@+id/peso"
-            android:textColor="#0b0b0b"
             android:layout_alignTop="@+id/textView6"
-            android:layout_toRightOf="@+id/serieDecrease"/>
+            android:layout_toRightOf="@+id/serieDecrease" />
 
-    <Button
-            android:id="@+id/cancel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:text="@string/cancel"
-            android:layout_below="@+id/textView6"
-            android:textColor="@android:color/background_dark"
-            android:layout_toLeftOf="@+id/ok">
-
-        <requestFocus/>
-    </Button>
-
-    <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/repeatDecrease"
-            android:src="@drawable/arrow_left"
-            android:layout_alignBottom="@+id/repiticoes"
-            android:layout_toLeftOf="@+id/repiticoes"/>
-
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/serieDecrease"
-            android:src="@drawable/arrow_left"
-            android:layout_toLeftOf="@+id/serie"
-            android:layout_alignBottom="@+id/textView"
-            android:layout_below="@+id/text"/>
-
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/pesoDecrease"
-            android:src="@drawable/arrow_left"
-            android:layout_alignTop="@+id/pesoIncrease"
+            android:src="@drawable/train_serie_seta_esquerda"
+            android:layout_alignTop="@+id/textView6"
             android:layout_alignLeft="@+id/serieDecrease"
-            android:layout_alignBottom="@+id/textView6"/>
+            android:clickable="true" />
 
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/repeatIncrease"
-            android:src="@drawable/arrow_left"
-            android:layout_alignBottom="@+id/text"
-            android:layout_alignParentRight="true"/>
 
-    <ImageButton
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/serieIncrease"
-            android:src="@drawable/arrow_left"
-            android:layout_toRightOf="@+id/serie"
-            android:layout_below="@+id/text"
-            android:layout_alignBottom="@+id/serieDecrease"/>
-
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/pesoIncrease"
-            android:src="@drawable/arrow_left"
-            android:layout_below="@+id/textView"
+            android:src="@drawable/train_serie_seta_direita"
+            android:layout_alignTop="@+id/textView6"
             android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/textView6"/>
+            android:clickable="true" />
+    </RelativeLayout>
+
+    <!--Barra que separa o muiolo dos botoes-->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/div4"
+        android:src="@drawable/div_cinza_claro"
+        android:layout_below="@+id/thumbnail"
+        android:layout_marginTop="15dp" />
+
+    <!--Botoes-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/div4"
+        android:weightSum="11">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="@string/cancel"
+            android:background="@android:color/transparent"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/div5"
+            android:src="@drawable/separador_vertical"
+            android:layout_below="@+id/thumbnail" />
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="@string/ok"
+            android:background="@android:color/transparent"
+            android:clickable="true">
+
+            <requestFocus />
+        </Button>
+
+    </LinearLayout>
+
 
 </RelativeLayout>

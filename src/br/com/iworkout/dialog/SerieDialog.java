@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import br.com.iworkout.R;
@@ -48,22 +49,27 @@ public class SerieDialog extends DialogFragment {
         repeticoes = (TextView) v.findViewById(R.id.repiticoes);
         serie = (TextView) v.findViewById(R.id.serie);
         peso = (TextView) v.findViewById(R.id.peso);
+        TextView musculo = (TextView) v.findViewById(R.id.musculo);
+        TextView exercicio = (TextView) v.findViewById(R.id.exercicio);
+
+        musculo.setText(getArguments().getString("musculo") + " -");
+        exercicio.setText(getArguments().getString("exercicio"));
 
 
         // watch for button clicks.
-        ImageButton repeatDecrease = (ImageButton) v.findViewById(R.id.repeatDecrease);
+        ImageView repeatDecrease = (ImageView) v.findViewById(R.id.repeatDecrease);
         repeatDecrease.setOnClickListener(createClickListener());
-        ImageButton repeatIncrease = (ImageButton) v.findViewById(R.id.repeatIncrease);
+        ImageView repeatIncrease = (ImageView) v.findViewById(R.id.repeatIncrease);
         repeatIncrease.setOnClickListener(createClickListener());
 
-        ImageButton serieIncrease = (ImageButton) v.findViewById(R.id.serieIncrease);
+        ImageView serieIncrease = (ImageView) v.findViewById(R.id.serieIncrease);
         serieIncrease.setOnClickListener(createClickListener());
-        ImageButton serieDecrease = (ImageButton) v.findViewById(R.id.serieDecrease);
+        ImageView serieDecrease = (ImageView) v.findViewById(R.id.serieDecrease);
         serieDecrease.setOnClickListener(createClickListener());
 
-        ImageButton pesoIncrease = (ImageButton) v.findViewById(R.id.pesoIncrease);
+        ImageView pesoIncrease = (ImageView) v.findViewById(R.id.pesoIncrease);
         pesoIncrease.setOnClickListener(createClickListener());
-        ImageButton pesoDecrease = (ImageButton) v.findViewById(R.id.pesoDecrease);
+        ImageView pesoDecrease = (ImageView) v.findViewById(R.id.pesoDecrease);
         pesoDecrease.setOnClickListener(createClickListener());
 
         Button ok = (Button) v.findViewById(R.id.ok);
@@ -71,6 +77,14 @@ public class SerieDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 mListener.onDialogPositiveClick(SerieDialog.this, repeticoes,serie, peso );
+            }
+        });
+
+        Button cancel = (Button) v.findViewById(R.id.cancel);
+        cancel.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onDialogNegativeClick(SerieDialog.this);
             }
         });
         return v;
@@ -85,31 +99,39 @@ public class SerieDialog extends DialogFragment {
                 switch (id){
                     case R.id.repeatDecrease:
                         v = Integer.valueOf(repeticoes.getText().toString());
-                        repeticoes.setText(String.valueOf(v - 1));
+                        repeticoes.setText(formatNumber(v - 1));
                         break;
                     case R.id.repeatIncrease:
                         v = Integer.valueOf(repeticoes.getText().toString());
-                        repeticoes.setText(String.valueOf(v + 1));
+                        repeticoes.setText(formatNumber(v + 1));
                         break;
                     case R.id.serieDecrease:
                         v = Integer.valueOf(serie.getText().toString());
-                        serie.setText(String.valueOf(v - 1));
+                        serie.setText(formatNumber(v - 1));
                         break;
                     case R.id.serieIncrease:
                         v = Integer.valueOf(serie.getText().toString());
-                        serie.setText(String.valueOf(v + 1));
+                        serie.setText(formatNumber(v + 1));
                         break;
                     case R.id.pesoDecrease:
                         v = Integer.valueOf(peso.getText().toString());
-                        peso.setText(String.valueOf(v - 1));
+                        peso.setText(formatNumber(v - 1));
                         break;
                     case R.id.pesoIncrease:
                         v = Integer.valueOf(peso.getText().toString());
-                        peso.setText(String.valueOf(v + 1));
+                        peso.setText(formatNumber(v + 1));
                         break;
                 }
             }
         };
+    }
+
+    private String formatNumber(int x){
+        if (x < 0 ){
+            return "00";
+        }else{
+            return String.format("%02d",x);
+        }
     }
 
     @Override
@@ -123,7 +145,7 @@ public class SerieDialog extends DialogFragment {
         // Verify that the host activity implements the callback interface
         try {
             // Instantiate the NoticeDialogListener so we can send events to the host
-            mListener = (NoticeDialogListener) activity;
+            mListener = ( NoticeDialogListener) activity;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(activity.toString()

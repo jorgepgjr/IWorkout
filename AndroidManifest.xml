@@ -13,15 +13,25 @@
         android:icon="@drawable/iworkout_icon"
         android:label="@string/app_name"
         android:theme="@style/AppThemeTest">
-        <activity android:name=".activity.HelloAndroidActivity" >
+
+        <activity android:name=".activity.ApresentationActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:noHistory="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name=".activity.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ApresentationActivity" />
+        </activity>
+
         <activity android:name=".activity.TrainActivity"
-                android:parentActivityName=".activity.HelloAndroidActivity">
+                android:parentActivityName=".activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HelloAndroidActivity" />

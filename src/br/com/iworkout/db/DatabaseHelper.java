@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
@@ -25,9 +26,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 28;
+    private static final int DATABASE_VERSION = 30;
 
-    // the DAO object we use to access the Musculo table
+    // the DAO object we use to access the all tables
     private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
     private RuntimeExceptionDao<Exercicio, Integer> exercicioDao = null;
     private RuntimeExceptionDao<Treino, Integer> treinoDao = null;
@@ -79,11 +80,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    //TODO: Remover isso, criar o banco em um estado já populado
     public void fillMusculo(){
         getMusculoDao().create(new Musculo("Abdominal"));
         getMusculoDao().create(new Musculo("Biceps"));
     }
 
+    //TODO: Remover isso, criar o banco em um estado já populado
     public void fillExercicio(){
         getExercicioDao().create(new Exercicio("Rosca Direta", getMusculoDao().queryForId(2)));
         getExercicioDao().create(new Exercicio("Rosca Alternada", getMusculoDao().queryForId(2)));

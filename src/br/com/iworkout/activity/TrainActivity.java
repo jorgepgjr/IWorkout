@@ -3,10 +3,12 @@ package br.com.iworkout.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ import br.com.iworkout.util.MyDialogFragment;
 import br.com.iworkout.util.adapter.TrainListAdapter;
 
 
-public class TrainActivity extends DBFragmentActivity implements MyDialogFragment.NoticeDialogListener{
+public class TrainActivity extends DBActionBarActivity implements MyDialogFragment.NoticeDialogListener {
 
     ListView list;
     private List<Treino> treinos;
@@ -29,13 +31,22 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.train);
         list = (ListView) findViewById(R.id.list);
+        loadTrainList();
+        registerForContextMenu(list);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        loadTrainList();
+    }
+
+    private void loadTrainList() {
         treinos = getHelper().getTreinoDao().queryForAll();
-        if (treinos != null && treinos.size() > 0){
-            TrainListAdapter adapter = new TrainListAdapter(this,treinos);
+        if (treinos != null && treinos.size() > 0) {
+            TrainListAdapter adapter = new TrainListAdapter(this, treinos);
             list.setAdapter(adapter);
         }
-//        showNoTrainsDialog();
-
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(TrainActivity.this, TrainDetailsActivity.class);
@@ -45,10 +56,28 @@ public class TrainActivity extends DBFragmentActivity implements MyDialogFragmen
         });
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add(Menu.NONE, 1, Menu.NONE, "Deletar");
+    }
 
-    public void onClickNewTrain(View view){
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+//            deletar
+            case 1:
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                getHelper().getSerieDao().delete(treinos.get(info.position).getSeries());
+                getHelper().getTreinoDao().delete(treinos.get(info.position));
+                break;
+        }
+        loadTrainList();
+        return super.onContextItemSelected(item);
+    }
+
+    public void onClickNewTrain(View view) {
         Intent intent = new Intent(this, ChooseMuscleActivity.class);
-        intent.putExtra("newTreino",new Treino());
         startActivity(intent);
     }
 
