@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_main">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:src="@drawable/musculo_biceps"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medidas do Corpo"
+        android:textSize="20dip"
+        android:layout_below="@+id/header"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/middle"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:layout_below="@id/title">
+
+
+        <TextView android:id="@+id/sub_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Para começar vamos anotar algumas medidas do seu corpo para acompanharmos a sua evolução."
+            android:gravity="center"
+            android:textSize="20dip"
+            android:layout_marginBottom="50dp"/>
+
+        <TextView android:id="@+id/question"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Vamos lá?"
+            android:gravity="center"
+            android:textSize="20dip" />
+
+        <!--Botões -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <Button android:id="@+id/btnAgoraNao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_weight="1"
+                android:text="Agora não"
+                android:onClick="agoraNao"/>
+
+            <Button android:id="@+id/btnVamos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:text="Vamos"
+                android:layout_weight="1"
+                android:onClick="ok"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

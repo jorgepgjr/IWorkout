@@ -34,7 +34,7 @@
                 android:parentActivityName=".activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".HelloAndroidActivity" />
+                android:value=".MenuActivity" />
         </activity>
 
         <activity android:name=".activity.ChooseMuscleActivity"
@@ -69,6 +69,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NewTrainActivity" />
         </activity>
+        <activity android:name=".activity.LoginActivity"
+            android:parentActivityName=".activity.TrainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MetricsActivity" />
+        </activity>
+
+        <activity android:name=".activity.MetricsActivity"
+            android:parentActivityName=".activity.ApresentationActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ApresentationActivity" />
+        </activity>
+
     </application>
 
 </manifest>

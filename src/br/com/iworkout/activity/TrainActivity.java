@@ -105,6 +105,17 @@ public class TrainActivity extends DBActionBarActivity implements MyDialogFragme
 //        http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/
     }
 
+    /**
+     * Quando clickar no botão de voltar, manda para a ela de treino.
+     */
+    @Override
+    public void onBackPressed() {
+        Intent backIntent = new Intent(this, MenuActivity.class);
+        startActivity(backIntent);
+        finish();
+        super.onBackPressed();
+    }
+
     @Override
     public void onDialogPositiveClick(DialogFragment dialog) {
 

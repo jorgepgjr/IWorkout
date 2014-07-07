@@ -36,6 +36,7 @@ public class MenuActivity extends ActionBarActivity{
 
     public void onClickTrain(View view){
         Intent intent = new Intent(this, TrainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -70,6 +71,15 @@ public class MenuActivity extends ActionBarActivity{
 //        treino.setDtInc(new Date());
 //        treinoDao.create(treino);
 
+    }
+
+    /**
+     * Quando clickar no botão de voltar, manda para a ela de treino.
+     */
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
     }
 
 }
