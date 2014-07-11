@@ -19,10 +19,12 @@ package br.com.iworkout.dialog;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,9 +33,9 @@ import br.com.iworkout.R;
 
 public class SerieDialog extends DialogFragment {
 
-    TextView repeticoes;
-    TextView serie;
-    TextView peso;
+    EditText repeticoes;
+    EditText serie;
+    EditText peso;
     // Use this instance of the interface to deliver action events
     NoticeDialogListener mListener;
 
@@ -46,11 +48,16 @@ public class SerieDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.choose_serie, container, false);
-        repeticoes = (TextView) v.findViewById(R.id.repiticoes);
-        serie = (TextView) v.findViewById(R.id.serie);
-        peso = (TextView) v.findViewById(R.id.peso);
+        repeticoes = (EditText) v.findViewById(R.id.repiticoes);
+        serie = (EditText) v.findViewById(R.id.serie);
+        peso = (EditText) v.findViewById(R.id.peso);
         TextView musculo = (TextView) v.findViewById(R.id.musculo);
         TextView exercicio = (TextView) v.findViewById(R.id.exercicio);
+
+//        InputFilter[] filter = new InputFilter[]{new InputFilterMinMax("1", "12")};
+//        et.setFilters();
+//        et.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "12")});
+//        et.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "12")});
 
         musculo.setText(getArguments().getString("musculo") + " -");
         exercicio.setText(getArguments().getString("exercicio"));

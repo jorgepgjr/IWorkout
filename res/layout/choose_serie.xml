@@ -80,7 +80,7 @@
             android:layout_toLeftOf="@+id/repiticoes"
             android:clickable="true" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
@@ -89,7 +89,10 @@
             android:text="15"
             android:id="@+id/repiticoes"
             android:layout_alignBottom="@+id/repeatIncrease"
-            android:layout_toLeftOf="@+id/repeatIncrease" />
+            android:layout_toLeftOf="@+id/repeatIncrease"
+            android:background="#ffffffff"
+            android:maxLength="3"
+            android:inputType="number" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -133,7 +136,7 @@
             android:layout_alignTop="@+id/textView"
             android:clickable="true" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
@@ -141,7 +144,10 @@
             android:id="@+id/serie"
             android:layout_alignTop="@+id/textView"
             android:layout_alignRight="@+id/repiticoes"
-            android:textColor="#0b0b0b" />
+            android:textColor="#0b0b0b"
+            android:background="#ffffffff"
+            android:maxLength="2"
+            android:inputType="number"/>
 
 
         <ImageView
@@ -177,14 +183,17 @@
             android:layout_marginBottom="20dp"
             android:textColor="@android:color/background_dark" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp"
             android:text="10"
             android:id="@+id/peso"
             android:layout_alignTop="@+id/textView6"
-            android:layout_toRightOf="@+id/serieDecrease" />
+            android:layout_alignRight="@+id/repiticoes"
+            android:background="#ffffffff"
+            android:maxLength="3"
+            android:inputType="number"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -192,7 +201,7 @@
             android:id="@+id/pesoDecrease"
             android:src="@drawable/train_serie_seta_esquerda"
             android:layout_alignTop="@+id/textView6"
-            android:layout_alignLeft="@+id/serieDecrease"
+            android:layout_toLeftOf="@+id/peso"
             android:clickable="true" />
 
 
