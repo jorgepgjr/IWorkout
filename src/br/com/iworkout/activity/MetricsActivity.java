@@ -6,16 +6,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 
 import br.com.iworkout.R;
 import br.com.iworkout.components.CustomEditText;
 import br.com.iworkout.db.entity.Metrics;
 
-public class MetricsActivity extends Activity {
+public class MetricsActivity extends DBFragmentActivity {
 
     final String PREFS_NAME = "MyPrefsFile";
     private Integer[] telas;
-    private int count= 0;
+    private int count = 0;
     SharedPreferences settings;
     View middle;
     private Metrics metrics = new Metrics();
@@ -32,11 +35,15 @@ public class MetricsActivity extends Activity {
     }
 
     public void ok(View view) {
-        //TODO: Salva os dados
 
-        switch (telas[count]){
+        switch (telas[count]) {
             case R.layout.metrics_midle_sex:
-                //TODO:ver como faz pra pegar o radiobutton
+                RadioButton masc = (RadioButton) findViewById(R.id.masc);
+                if (masc.isChecked()){
+                    metrics.setSexo("M");
+                }else{
+                    metrics.setSexo("F");
+                }
                 break;
             case R.layout.metrics_midle_weight:
                 CustomEditText a = (CustomEditText) findViewById(R.id.peso);
@@ -54,9 +61,20 @@ public class MetricsActivity extends Activity {
 
                 break;
             case R.layout.metrics_midle_lower_body:
+                CustomEditText cintura = (CustomEditText) findViewById(R.id.cintura);
+                metrics.setCintura(cintura.getValue());
+
+                CustomEditText quadril = (CustomEditText) findViewById(R.id.quadril);
+                metrics.setQuadril(quadril.getValue());
+
+                CustomEditText coxa = (CustomEditText) findViewById(R.id.coxa);
+                metrics.setCoxa(coxa.getValue());
                 break;
 
-
+            case R.layout.metrics_midle_finish:
+                RuntimeExceptionDao<Metrics, Integer> dao = super.getHelper().getMetricsDao();
+                dao.create(metrics);
+                break;
         }
 
         proximaTela();
@@ -86,6 +104,8 @@ public class MetricsActivity extends Activity {
             middle = getLayoutInflater().inflate(telas[++count], parent, false);
             parent.addView(middle);
         } else {
+            //Se passar por aqui é porque clicou em Finalizar;
+            getHelper().getMetricsDao().create(metrics);
             Intent intent = new Intent(this, MenuActivity.class);
             startActivity(intent);
             finish();

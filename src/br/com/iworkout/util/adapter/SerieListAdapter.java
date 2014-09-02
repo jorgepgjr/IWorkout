@@ -50,15 +50,15 @@ public class SerieListAdapter extends BaseAdapter {
         }
 
         TextView title = (TextView)vi.findViewById(R.id.title); // title
-        TextView subTitle = (TextView)vi.findViewById(R.id.subTitle); // subTitle
+//        TextView subTitle = (TextView)vi.findViewById(R.id.subTitle); // subTitle
 
         Serie[] seriesArray = (Serie[]) data.toArray();
         final Serie serie = seriesArray[i];
         final Exercicio exercicio = serie.getExercicio();
 
         // Setting all values in listview
-        title.setText(exercicio.getNome());
-//        subTitle.setText(exercicio.getMusculos().get(0).getNome());
+//        title.setText(exercicio.getNome());
+        title.setText(exercicio.getMusculo().getNome());
         return vi;
     }
 }

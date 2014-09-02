@@ -6,11 +6,14 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.j256.ormlite.dao.ForeignCollection;
 
@@ -45,10 +48,53 @@ public class TrainDetailsActivity extends DBActionBarActivity {
         loadList();
     }
 
+    private void loadList() {
+        if (series != null && series.size() > 0){
+            TrainDetailsListAdapter adapter = new TrainDetailsListAdapter(this,series);
+            list.setAdapter(adapter);
+        }
+    }
+
+    public void onFinalizarTreinoClick(View view){
+        //Verifica se todos os exercicios estão checkados
+        TrainDetailsListAdapter adapter = (TrainDetailsListAdapter) list.getAdapter();
+        if(adapter.arAllSelected()){
+            Intent intent = new Intent(this, TrainActivity.class);
+            startActivity(intent);
+            finish();
+        }else
+            Toast.makeText(this.getBaseContext(),"Termine todos os exercícios antes de finalizar o treino",Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     *Menus
+     */
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.add(Menu.NONE, 1, Menu.NONE, "Deletar");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.train_details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.trainDetailsAdd:
+                Intent intent = new Intent(this, ChooseMuscleActivity.class);
+                intent.putExtra("treino", treino);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -63,19 +109,6 @@ public class TrainDetailsActivity extends DBActionBarActivity {
         }
         loadList();
         return super.onContextItemSelected(item);
-    }
-
-    private void loadList() {
-        if (series != null && series.size() > 0){
-            TrainDetailsListAdapter adapter = new TrainDetailsListAdapter(this,series);
-            list.setAdapter(adapter);
-        }
-    }
-
-    public void addExercicioClick(View view) {
-        Intent intent = new Intent(this, ChooseMuscleActivity.class);
-        intent.putExtra("treino", treino);
-        startActivity(intent);
     }
 
     /**

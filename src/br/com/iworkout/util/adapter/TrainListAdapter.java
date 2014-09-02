@@ -51,13 +51,13 @@ public class TrainListAdapter extends BaseAdapter {
         }
 
         TextView title = (TextView)vi.findViewById(R.id.title); // title
-        TextView subTitle = (TextView)vi.findViewById(R.id.subTitle); // subTitle
+//        TextView subTitle = (TextView)vi.findViewById(R.id.subTitle); // subTitle
 
         Treino treino = data.get(i);
 
         // Setting all values in listview
         title.setText(treino.getNome());
-        subTitle.setText(new SimpleDateFormat("dd/MM/yyy").format(treino.getDtInc()));
+//        subTitle.setText(new SimpleDateFormat("dd/MM/yyy").format(treino.getDtInc()));
 
 
         return vi;

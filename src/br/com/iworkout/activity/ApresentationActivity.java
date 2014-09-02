@@ -23,14 +23,14 @@ public class ApresentationActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         settings = getSharedPreferences(PREFS_NAME, 0);
-//        if (settings.getBoolean("my_first_time", true)) {
+        if (settings.getBoolean("my_first_time", true)) {
             setContentView(R.layout.apresentation_activity);
             fundo = (ImageView) findViewById(R.id.fundo);
             telas = new Integer[]{R.drawable.apresentacao_2_metas, R.drawable.apresentacao_3_evolucao, R.drawable.apresentacao_4_academia};
-//        }else{
-//            Intent intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-//        }
+        }else{
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void changeScreen(View view) {

@@ -85,6 +85,8 @@
     <orderEntry type="library" exported="" name="commons-collections-3.2" level="project" />
     <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-18.0.0" level="project" />
+    <orderEntry type="library" exported="" name="bolts" level="project" />
+    <orderEntry type="module" module-name="facebook" exported="" />
   </component>
 </module>
 

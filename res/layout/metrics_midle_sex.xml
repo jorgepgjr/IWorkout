@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/middle"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -12,28 +11,33 @@
         android:id="@+id/sub_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Qual o seu peso?"
+        android:text="Qual o seu sexo?"
         android:gravity="center"
         android:textSize="20dip"
         android:textColor="@android:color/black"/>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <RadioGroup
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="50dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp">
 
-        <br.com.iworkout.components.CustomEditText
-            android:id="@+id/peso"
+        <RadioButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:value="50" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="Masculino"
+            android:textColor="@android:color/black"
+            android:checked="true"
+            android:id="@+id/masc" />
 
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feminino"
+            android:textColor="@android:color/black"
+            android:id="@+id/fem"/>
 
-    <!--Botões -->
-
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="fill_parent"

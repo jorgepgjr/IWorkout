@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="CustomEditText">
         <attr name="value" format="string" localization="suggested" />
+        <attr name="color" format="boolean" localization="suggested" />
     </declare-styleable>
 
 </resources> 

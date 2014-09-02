@@ -46,6 +46,14 @@
             android:text="Login"
             android:onClick="logar"/>
 
+        <com.facebook.widget.LoginButton
+            android:id="@+id/authButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            />
+
         <!-- Link to Registration Screen -->
         <TextView android:id="@+id/esqueci_senha"
             android:layout_width="fill_parent"

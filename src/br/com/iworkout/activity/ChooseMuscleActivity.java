@@ -52,9 +52,28 @@ public class ChooseMuscleActivity extends DBActionBarActivity {
                 case R.id.abdominal:
                     musculoId = 1;
                     break;
-                case R.id.biceps:
+                case R.id.aerobico:
                     musculoId = 2;
                     break;
+                case R.id.biceps:
+                    musculoId = 3;
+                    break;
+                case R.id.costas:
+                    musculoId = 4;
+                    break;
+                case R.id.ombro:
+                    musculoId = 5;
+                    break;
+                case R.id.peitoral:
+                    musculoId = 6;
+                    break;
+                case R.id.pernas:
+                    musculoId = 7;
+                    break;
+                case R.id.triceps:
+                    musculoId = 8;
+                    break;
+
             }
 
             final Musculo musculo = super.getHelper().getMusculoDao().queryForId(musculoId);

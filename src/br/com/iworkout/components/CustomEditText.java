@@ -23,14 +23,19 @@ public class CustomEditText extends LinearLayout {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.CustomEditText);
         String titleText = typedArray.getString(R.styleable.CustomEditText_value);
+        Boolean color = typedArray.getBoolean(R.styleable.CustomEditText_color,false);
 
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.component_test, this, true);
 
-
         ImageView decrease = (ImageView) findViewById(R.id.decrease);
         ImageView increase = (ImageView) findViewById(R.id.increase);
+
+        if (color){
+            decrease.setImageResource(R.drawable.train_serie_seta_esquerda);
+            increase.setImageResource(R.drawable.train_serie_seta_direita);
+        }
         editText = (EditText) findViewById(R.id.value);
         editText.setText(titleText);
 

@@ -13,6 +13,7 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 import br.com.iworkout.db.entity.Exercicio;
+import br.com.iworkout.db.entity.Metrics;
 import br.com.iworkout.db.entity.Musculo;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
@@ -26,13 +27,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 30;
+    private static final int DATABASE_VERSION = 32;
 
     // the DAO object we use to access the all tables
     private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
     private RuntimeExceptionDao<Exercicio, Integer> exercicioDao = null;
     private RuntimeExceptionDao<Treino, Integer> treinoDao = null;
     private RuntimeExceptionDao<Serie, Integer> serieDao = null;
+    private RuntimeExceptionDao<Metrics, Integer> metricsDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -50,6 +52,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Exercicio.class);
             TableUtils.createTable(connectionSource, Serie.class);
             TableUtils.createTable(connectionSource, Treino.class);
+            TableUtils.createTable(connectionSource, Metrics.class);
 
             fillMusculo();
             fillExercicio();
@@ -72,6 +75,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, Exercicio.class, true);
             TableUtils.dropTable(connectionSource, Serie.class, true);
             TableUtils.dropTable(connectionSource, Treino.class, true);
+            TableUtils.dropTable(connectionSource, Metrics.class, true);
             // after we drop the old databases, we create the new ones
             onCreate(db, connectionSource);
         } catch (SQLException e) {
@@ -83,16 +87,32 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     //TODO: Remover isso, criar o banco em um estado já populado
     public void fillMusculo(){
         getMusculoDao().create(new Musculo("Abdominal"));
+        getMusculoDao().create(new Musculo("Aerobico"));
         getMusculoDao().create(new Musculo("Biceps"));
+        getMusculoDao().create(new Musculo("Costas"));
+        getMusculoDao().create(new Musculo("Ombro"));
+        getMusculoDao().create(new Musculo("Peitoral"));
+        getMusculoDao().create(new Musculo("Pernas"));
+        getMusculoDao().create(new Musculo("Triceps"));
+
     }
 
     //TODO: Remover isso, criar o banco em um estado já populado
     public void fillExercicio(){
-        getExercicioDao().create(new Exercicio("Rosca Direta", getMusculoDao().queryForId(2)));
-        getExercicioDao().create(new Exercicio("Rosca Alternada", getMusculoDao().queryForId(2)));
-
+        //Abdominal
         getExercicioDao().create(new Exercicio("Simples", getMusculoDao().queryForId(1)));
         getExercicioDao().create(new Exercicio("Canivete", getMusculoDao().queryForId(1)));
+        //Aerobico
+        getExercicioDao().create(new Exercicio("Corrida", getMusculoDao().queryForId(2)));
+        getExercicioDao().create(new Exercicio("Corda", getMusculoDao().queryForId(2)));
+        //Biceps
+        getExercicioDao().create(new Exercicio("Rosca Direta", getMusculoDao().queryForId(3)));
+        getExercicioDao().create(new Exercicio("Rosca Alternada", getMusculoDao().queryForId(3)));
+        //Costas
+        getExercicioDao().create(new Exercicio("Remada Fechada", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Rosca Aberta", getMusculoDao().queryForId(4)));
+
+
     }
 
     /**
@@ -125,6 +145,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             treinoDao = getRuntimeExceptionDao(Treino.class);
         }
         return treinoDao;
+    }
+
+    public RuntimeExceptionDao<Metrics, Integer> getMetricsDao() {
+        if (metricsDao == null) {
+            metricsDao = getRuntimeExceptionDao(Metrics.class);
+        }
+        return metricsDao;
     }
 
     /**
