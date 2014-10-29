@@ -1,27 +1,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg_main"
-    android:theme="@android:style/Theme.NoTitleBar">
+    android:background="@drawable/bg_laranja">
 
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/header"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="93dp"
-        android:src="@drawable/peso" />
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_monitore_fitness" />
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dip"
+        android:padding="30dp"
         android:layout_below="@id/header">
 
         <EditText android:layout_width="fill_parent"
@@ -38,28 +34,14 @@
             android:singleLine="true"
             android:password="true"
             android:hint="Entre com sua senha"/>
-        <!-- Login button -->
-        <Button android:id="@+id/btnLogin"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:text="Login"
-            android:onClick="logar"/>
-
-        <com.facebook.widget.LoginButton
-            android:id="@+id/authButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            />
-
         <!-- Link to Registration Screen -->
+
         <TextView android:id="@+id/esqueci_senha"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
             android:text="Esqueci a minha senha"
+            android:textColor="@android:color/black"
             android:gravity="center"
             android:textSize="20dip"/>
 
@@ -67,8 +49,26 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Meu primeiro acesso"
+            android:textColor="@android:color/black"
             android:gravity="center"
+            android:layout_marginTop="10dp"
             android:textSize="20dip" />
+
+        <com.facebook.widget.LoginButton
+            android:id="@+id/authButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            />
+        <!-- Login button -->
+        <Button android:id="@+id/btnLogin"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Entrar"
+            android:onClick="logar"/>
 
     </LinearLayout>
 </RelativeLayout>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.iworkout"
     android:versionCode="1"
-    android:versionName="1.0-SNAPSHOT" >
+    android:versionName="1.0-SNAPSHOT">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -14,7 +14,8 @@
         android:label="@string/app_name"
         android:theme="@style/AppThemeTest">
 
-        <activity android:name=".activity.ApresentationActivity"
+        <activity
+            android:name=".activity.ApresentationActivity"
             android:theme="@android:style/Theme.NoTitleBar"
             android:noHistory="true">
 
@@ -24,60 +25,70 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MenuActivity" >
+        <activity android:name=".activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ApresentationActivity" />
         </activity>
 
-        <activity android:name=".activity.TrainActivity"
-                android:parentActivityName=".activity.MenuActivity">
+        <activity
+            android:name=".activity.TrainActivity"
+            android:parentActivityName=".activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuActivity" />
         </activity>
 
-        <activity android:name=".activity.ChooseMuscleActivity"
-                android:parentActivityName=".activity.TrainActivity">
+        <activity
+            android:name=".activity.ChooseMuscleActivity"
+            android:parentActivityName=".activity.TrainActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".TrainActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".TrainActivity" />
         </activity>
 
-        <activity android:name=".activity.ChooseExercicioActivity"
-                  android:parentActivityName=".activity.ChooseMuscleActivity">
+        <activity
+            android:name=".activity.ChooseExercicioActivity"
+            android:parentActivityName=".activity.ChooseMuscleActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".ChooseMuscleActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChooseMuscleActivity" />
         </activity>
 
-        <activity android:name=".activity.ChooseSerieActivity"
-                  android:parentActivityName=".activity.ChooseExercicioActivity">
+        <activity
+            android:name=".activity.ChooseSerieActivity"
+            android:parentActivityName=".activity.ChooseExercicioActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".ChooseExercicioActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChooseExercicioActivity" />
         </activity>
-        <activity android:name=".activity.NewTrainActivity"
-                  android:parentActivityName=".activity.NewTrainActivity">
+        <activity
+            android:name=".activity.NewTrainActivity"
+            android:parentActivityName=".activity.NewTrainActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".NewTrainActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NewTrainActivity" />
         </activity>
-        <activity android:name=".activity.TrainDetailsActivity"
+        <activity
+            android:name=".activity.TrainDetailsActivity"
             android:parentActivityName=".activity.TrainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NewTrainActivity" />
         </activity>
-        <activity android:name=".activity.CreateTrainDetailsActivity"
+        <activity
+            android:name=".activity.CreateTrainDetailsActivity"
             android:parentActivityName=".activity.TrainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NewTrainActivity" />
         </activity>
 
-        <activity android:name=".activity.LoginActivity"
-            android:parentActivityName=".activity.TrainActivity">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:parentActivityName=".activity.TrainActivity"
+            android:theme="@android:style/Theme.NoTitleBar">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuActivity" />
@@ -86,13 +97,13 @@
                 android:value=".MetricsActivity" />
         </activity>
 
-        <activity android:name="com.facebook.LoginActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
 
 
-
-        <activity android:name=".activity.MetricsActivity"
+        <activity
+            android:name=".activity.MetricsActivity"
             android:parentActivityName=".activity.ApresentationActivity"
             android:theme="@android:style/Theme.NoTitleBar">
             <meta-data
@@ -101,11 +112,12 @@
         </activity>
 
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
     </application>
 
     <!-- Connect to Internet Permissions -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

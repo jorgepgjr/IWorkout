@@ -30,6 +30,7 @@ import java.util.Arrays;
 
 import br.com.iworkout.R;
 import br.com.iworkout.db.entity.User;
+import br.com.iworkout.util.FacebookUtil;
 
 
 public class LoginActivity extends Activity {
@@ -40,6 +41,7 @@ public class LoginActivity extends Activity {
     private LoginButton authButton;
     private UiLifecycleHelper uiHelper;
     private String  path;
+    private FacebookUtil fbUtil = new FacebookUtil(this);
     private Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
@@ -71,11 +73,12 @@ public class LoginActivity extends Activity {
                     if (user != null) {
                         //TODO: verifica se já temos esse usuário cadastrado apartir do ID do FB
                         try {
-                            FileOutputStream out;
-                            out = openFileOutput("user_profile_img", Context.MODE_PRIVATE);
-                            URL img_value = new URL("http://graph.facebook.com/"+user.getId()+"/picture?type=large");
-                            Bitmap mIcon1 = BitmapFactory.decodeStream(img_value.openConnection().getInputStream());
-                            mIcon1.compress(Bitmap.CompressFormat.PNG, 90, out);
+                            fbUtil.execute(user.getId());
+//                            FileOutputStream out;
+//                            out = openFileOutput("user_profile_img", Context.MODE_PRIVATE);
+//                            URL img_value = new URL("http://graph.facebook.com/"+user.getId()+"/picture?type=large");
+//                            Bitmap mIcon1 = BitmapFactory.decodeStream(img_value.openConnection().getInputStream());
+//                            mIcon1.compress(Bitmap.CompressFormat.PNG, 90, out);
 
 
                         } catch (Exception e) {
@@ -89,6 +92,7 @@ public class LoginActivity extends Activity {
                     }
                 }
             }).executeAsync();
+            //TODO: Se já estiver logado pelo FB redirecionar para a tela de menu direto;
 
         } else if (state.isClosed()) {
             Log.i("LoginActivity", "Logged out...");
@@ -122,11 +126,11 @@ public class LoginActivity extends Activity {
     @Override
     public void onResume() {
         super.onResume();
-        Session session = Session.getActiveSession();
-        if (session != null &&
-                (session.isOpened() || session.isClosed()) ) {
-            onSessionStateChange(session, session.getState(), null);
-        }
+//        Session session = Session.getActiveSession();
+//        if (session != null &&
+//                (session.isOpened() || session.isClosed()) ) {
+//            onSessionStateChange(session, session.getState(), null);
+//        }
 
         uiHelper.onResume();
     }

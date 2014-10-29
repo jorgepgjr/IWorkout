@@ -111,6 +111,8 @@ public class TrainActivity extends DBActionBarActivity implements MyDialogFragme
     @Override
     public void onBackPressed() {
         Intent backIntent = new Intent(this, MenuActivity.class);
+        backIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        backIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(backIntent);
         finish();
         super.onBackPressed();
