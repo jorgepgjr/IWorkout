@@ -2,15 +2,12 @@ package br.com.iworkout.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBarActivity;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +15,8 @@ import android.widget.Toast;
 import com.j256.ormlite.dao.ForeignCollection;
 
 import br.com.iworkout.R;
-import br.com.iworkout.db.DatabaseHelper;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
-import br.com.iworkout.dialog.SerieDialog;
-import br.com.iworkout.util.ActionBarHelper;
 import br.com.iworkout.util.adapter.TrainDetailsListAdapter;
 
 public class TrainDetailsActivity extends DBActionBarActivity {

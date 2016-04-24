@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/decrease"
+            android:src="@drawable/train_serie_seta_esquerda_branca"
+            android:clickable="true"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp"
+            android:text="70"
+            android:id="@+id/value"
+            android:background="@android:color/transparent"
+            android:maxLength="3"
+            android:inputType="number" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/increase"
+            android:src="@drawable/train_serie_seta_direita_branca"
+            android:clickable="true" />
+    </LinearLayout>
+</merge><!-- From: file:/home/jorge/workspace/IWorkout/res/layout/component_test.xml -->

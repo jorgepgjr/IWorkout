@@ -6,15 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.List;
 
 import br.com.iworkout.R;
 import br.com.iworkout.db.entity.Exercicio;
-import br.com.iworkout.db.entity.Serie;
 
 /**
  * Created by Jorge Peres on 10/09/13.

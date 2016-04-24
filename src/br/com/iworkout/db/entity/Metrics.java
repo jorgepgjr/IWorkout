@@ -2,10 +2,8 @@ package br.com.iworkout.db.entity;
 
 
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import javax.persistence.Entity;
 

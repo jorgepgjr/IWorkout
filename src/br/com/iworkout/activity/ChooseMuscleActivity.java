@@ -11,7 +11,6 @@ import br.com.iworkout.db.entity.Exercicio;
 import br.com.iworkout.db.entity.Musculo;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
-import br.com.iworkout.util.SessionManager;
 
 
 public class ChooseMuscleActivity extends DBActionBarActivity {

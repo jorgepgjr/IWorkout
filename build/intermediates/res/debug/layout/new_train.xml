@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+
+    android:layout_height="match_parent">
+
+    <RelativeLayout android:id="@+id/topoTelaTreino"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <ImageView android:id="@+id/logoTopo"
+            android:background="@drawable/icontreinarinternoex"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        <TextView
+            android:text="MONITORE FITNESS"
+            android:layout_toRightOf="@id/logoTopo"
+            android:layout_marginLeft="10dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:text="@string/trainLabel"
+        android:id="@+id/trainLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topoTelaTreino"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_new"
+        android:id="@+id/button"
+        android:onClick="onClickNewTrain"
+        android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit"
+        android:id="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/button"/>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trainLabel"
+        android:layout_above="@+id/button"/>
+</RelativeLayout><!-- From: file:/home/jorge/workspace/IWorkout/res/layout/new_train.xml -->

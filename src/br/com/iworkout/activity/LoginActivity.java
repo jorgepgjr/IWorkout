@@ -1,13 +1,9 @@
 package br.com.iworkout.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 
@@ -19,18 +15,11 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
 import java.util.Arrays;
 
 import br.com.iworkout.R;
 import br.com.iworkout.db.entity.User;
-import br.com.iworkout.util.FacebookUtil;
+//import br.com.iworkout.util.FacebookUtil;
 
 
 public class LoginActivity extends Activity {
@@ -41,7 +30,7 @@ public class LoginActivity extends Activity {
     private LoginButton authButton;
     private UiLifecycleHelper uiHelper;
     private String  path;
-    private FacebookUtil fbUtil = new FacebookUtil(this);
+//    private FacebookUtil fbUtil = new FacebookUtil(this);
     private Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(Session session, SessionState state, Exception exception) {
@@ -73,7 +62,7 @@ public class LoginActivity extends Activity {
                     if (user != null) {
                         //TODO: verifica se já temos esse usuário cadastrado apartir do ID do FB
                         try {
-                            fbUtil.execute(user.getId());
+//                            fbUtil.execute(user.getId());
 //                            FileOutputStream out;
 //                            out = openFileOutput("user_profile_img", Context.MODE_PRIVATE);
 //                            URL img_value = new URL("http://graph.facebook.com/"+user.getId()+"/picture?type=large");

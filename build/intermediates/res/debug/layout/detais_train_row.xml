@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/exercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentStart="true"
+        android:text="Exercicio 1:"
+        android:textColor="#ffda7314"
+        android:typeface="sans"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/detaisTrainRowListImage"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_below="@+id/exercicio"
+        android:layout_alignLeft="@+id/exercicio"
+        android:layout_alignStart="@+id/exercicio" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/detaisTrainRowListImage"
+        android:text="Biceps"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:background="@drawable/div_barra_tracejada"
+        android:layout_below="@+id/detaisTrainRowListImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="5dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"/>
+
+</RelativeLayout><!-- From: file:/home/jorge/workspace/IWorkout/res/layout/detais_train_row.xml -->

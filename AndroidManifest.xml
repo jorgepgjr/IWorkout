@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MenuActivity">
+        <activity android:name=".activity.MenuActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ApresentationActivity" />
@@ -89,9 +90,6 @@
             android:parentActivityName=".activity.TrainActivity"
             android:theme="@android:style/Theme.NoTitleBar">
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity" />
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MetricsActivity" />

@@ -1,6 +1,5 @@
 package br.com.iworkout.activity;
 
-import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;

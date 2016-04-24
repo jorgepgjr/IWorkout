@@ -93,7 +93,8 @@ public class ChooseExercicioActivity extends DBActionBarActivity implements Seri
         newSerie.setTreino(newTreino);
         newSerie.setExercicio(exercicioSelecionado);
         getHelper().getSerieDao().createOrUpdate(newSerie);
-        Intent intent = new Intent(this, CreateTrainDetailsActivity.class);
+        Intent intent = new Intent();
+//                this, CreateTrainDetailsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.putExtra("TREINO_ID", newTreino.getId());
         startActivity(intent);

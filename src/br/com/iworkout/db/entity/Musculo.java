@@ -1,20 +1,13 @@
 package br.com.iworkout.db.entity;
 
 
-import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Musculo implements Serializable {

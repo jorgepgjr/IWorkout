@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/middle"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dip"
+    android:layout_below="@id/title">
+
+
+    <TextView
+        android:id="@+id/sub_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Qual a medida da sua cintura?"
+        android:gravity="center"
+        android:textSize="20dip"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ff000000"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <br.com.iworkout.components.CustomEditText
+            android:id="@+id/cintura"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:value="40"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sub_title2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Qual a medida do seu quadril?"
+        android:gravity="center"
+        android:textSize="20dip"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ff000000"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <br.com.iworkout.components.CustomEditText
+            android:id="@+id/quadril"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:value="40" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/sub_title3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Qual a medida da sua coxa?"
+        android:gravity="center"
+        android:textSize="20dip"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ff000000"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <br.com.iworkout.components.CustomEditText
+            android:id="@+id/coxa"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:value="50" />
+    </LinearLayout>
+
+
+    <!--Botões -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAgoraNao"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/btn_voltar"
+            android:onClick="voltar" />
+
+        <Button
+            android:id="@+id/btnPular"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/btn_pular"
+            android:onClick="pular" />
+
+        <Button
+            android:id="@+id/btnVamos"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dip"
+            android:layout_weight="1"
+            android:background="@drawable/btn_avancar"
+            android:onClick="ok" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/home/jorge/workspace/IWorkout/res/layout/metrics_midle_lower_body.xml -->

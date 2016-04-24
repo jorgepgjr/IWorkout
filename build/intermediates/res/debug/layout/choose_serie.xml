@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- Top-level content view for the simple fragment sample. -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="4dip"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+
+    <TextView
+        android:id="@+id/musculo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Bíceps"
+        android:layout_alignParentLeft="true"
+        android:textColor="#ffda7314"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/exercicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/musculo"
+        android:layout_alignTop="@+id/musculo"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Martelo"
+        android:textColor="#ffda7314" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:background="@drawable/div_barra_completa"
+        android:layout_below="@+id/musculo"
+        android:layout_marginBottom="30dp" />
+
+    <RelativeLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Quantas repetições?"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/repeatDecrease"
+            android:src="@drawable/train_serie_seta_esquerda"
+            android:layout_alignTop="@+id/text"
+            android:layout_toLeftOf="@+id/repiticoes"
+            android:clickable="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp"
+            android:text="15"
+            android:id="@+id/repiticoes"
+            android:layout_alignBottom="@+id/repeatIncrease"
+            android:layout_toLeftOf="@+id/repeatIncrease"
+            android:background="#ffffffff"
+            android:maxLength="3"
+            android:inputType="number" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/repeatIncrease"
+            android:src="@drawable/train_serie_seta_direita"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/div1"
+            android:src="@drawable/div_cinza_claro"
+            android:layout_below="@+id/text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="left|center_vertical"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:gravity="top|center_horizontal"
+            android:text="Quantas séries?"
+            android:layout_below="@+id/div1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/background_dark" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/serieDecrease"
+            android:src="@drawable/train_serie_seta_esquerda"
+            android:layout_toLeftOf="@+id/serie"
+            android:layout_alignTop="@+id/textView"
+            android:clickable="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="03"
+            android:id="@+id/serie"
+            android:layout_alignTop="@+id/textView"
+            android:layout_alignRight="@+id/repiticoes"
+            android:textColor="#0b0b0b"
+            android:background="#ffffffff"
+            android:maxLength="2"
+            android:inputType="number"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/serieIncrease"
+            android:src="@drawable/train_serie_seta_direita"
+            android:layout_toRightOf="@+id/serie"
+            android:layout_below="@+id/text"
+            android:layout_alignTop="@+id/textView"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/div2"
+            android:src="@drawable/div_cinza_claro"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Peso?"
+            android:layout_below="@+id/div2"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="10"
+            android:id="@+id/peso"
+            android:layout_alignTop="@+id/textView6"
+            android:layout_alignRight="@+id/repiticoes"
+            android:background="#ffffffff"
+            android:maxLength="3"
+            android:inputType="number"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/pesoDecrease"
+            android:src="@drawable/train_serie_seta_esquerda"
+            android:layout_alignTop="@+id/textView6"
+            android:layout_toLeftOf="@+id/peso"
+            android:clickable="true" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/pesoIncrease"
+            android:src="@drawable/train_serie_seta_direita"
+            android:layout_alignTop="@+id/textView6"
+            android:layout_alignParentRight="true"
+            android:clickable="true" />
+    </RelativeLayout>
+
+    <!--Barra que separa o muiolo dos botoes-->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/div4"
+        android:src="@drawable/div_cinza_claro"
+        android:layout_below="@+id/thumbnail"
+        android:layout_marginTop="15dp" />
+
+    <!--Botoes-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/div4"
+        android:weightSum="11">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="@string/cancel"
+            android:background="@android:color/transparent"
+            android:clickable="true" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/div5"
+            android:src="@drawable/separador_vertical"
+            android:layout_below="@+id/thumbnail" />
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="@string/ok"
+            android:background="@android:color/transparent"
+            android:clickable="true">
+
+            <requestFocus />
+        </Button>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+<!-- From: file:/home/jorge/workspace/IWorkout/res/layout/choose_serie.xml -->

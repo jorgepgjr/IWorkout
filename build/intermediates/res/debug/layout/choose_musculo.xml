@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/choose_the_type_excercise"
+        android:id="@+id/textView"
+        android:layout_below="@+id/nomeTreino"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nomeTreino"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:hint="Digite o nome do seu treino"
+        android:singleLine="true"
+        android:autoText="false" />
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/root"
+        android:stretchColumns="*"
+        android:layout_below="@+id/textView">
+
+        <TableRow
+            android:id="@+id/first_row"
+            android:layout_marginBottom="10dp">
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/abdominal"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/musculo_abdominal"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/aerobico"
+                android:background="@drawable/musculo_aerobico"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/biceps"
+                android:background="@drawable/musculo_biceps"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/costas"
+                android:background="@drawable/musculo_costas"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+        </TableRow>
+
+        <TableRow android:id="@+id/secondRow">
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/ombro"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/musculo_ombro"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/peitoral"
+                android:background="@drawable/musculo_peitoral"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/pernas"
+                android:background="@drawable/musculo_pernas"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+
+            <ImageButton
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/triceps"
+                android:background="@drawable/musculo_triceps"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="musculoClick" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout><!-- From: file:/home/jorge/workspace/IWorkout/res/layout/choose_musculo.xml -->
