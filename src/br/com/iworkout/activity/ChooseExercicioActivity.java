@@ -68,10 +68,10 @@ public class ChooseExercicioActivity extends DBActionBarActivity implements Seri
         });
     }
 
-//    public void saveExercicioClick(View view) {
-//        DialogFragment dialog = new SerieDialog();
-//        dialog.show(getSupportFragmentManager(), "Serie Dialog");
-//    }
+    public void saveExercicioClick(View view) {
+        DialogFragment dialog = new SerieDialog();
+        dialog.show(getSupportFragmentManager(), "Serie Dialog");
+    }
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog, TextView repeticoes, TextView serie, TextView peso) {

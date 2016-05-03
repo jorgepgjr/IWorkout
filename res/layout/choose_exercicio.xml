@@ -52,8 +52,7 @@
         android:id="@+id/listView"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_above="@+id/saveExercicio" />
+        android:layout_alignStart="@+id/textView" />
 
 
 </RelativeLayout>

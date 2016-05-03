@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import br.com.iworkout.R;
 
+
 public class ApresentationActivity extends Activity {
 
     private ImageView fundo;

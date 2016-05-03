@@ -54,13 +54,6 @@
             android:layout_marginTop="10dp"
             android:textSize="20dip" />
 
-        <com.facebook.widget.LoginButton
-            android:id="@+id/authButton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            />
         <!-- Login button -->
         <Button android:id="@+id/btnLogin"
             android:layout_width="150dp"
