@@ -29,6 +29,7 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.android.support:support-v4:19.+'
+    compile 'com.androidplot:androidplot-core:0.9.8'
 
 //    compile 'com.facebook.android:facebook-android-sdk:4.+'
 

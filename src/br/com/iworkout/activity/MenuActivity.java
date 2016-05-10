@@ -40,7 +40,23 @@ public class MenuActivity extends ActionBarActivity{
         startActivity(intent);
     }
 
+    public void onEvolucaoClick(View view) {
+        Intent intent = new Intent(this, EvolucaoActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+
+    public void onMinhaAcademiaClick(View view) {
+        Intent intent = new Intent(this, SobreActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
     public void onClickSegundo(View view){
+        Intent intent = new Intent(this, NewMetricsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
 //        RuntimeExceptionDao<Exercicio, Integer> exercicioDao = getHelper().getExercicioDao();
 //        RuntimeExceptionDao<Musculo,Integer> musculoDao = getHelper().getMusculoDao();
 //        RuntimeExceptionDao<Serie, Integer> serieDao = getHelper().getSerieDao();

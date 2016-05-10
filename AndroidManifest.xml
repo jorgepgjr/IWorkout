@@ -107,6 +107,33 @@
                 android:value="br.com.iworkout.activity.ApresentationActivity" />
         </activity>
 
+        <activity
+            android:name=".activity.NewMetricsActivity"
+            android:parentActivityName=".activity.MenuActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.iworkout.activity.MenuActivity" />
+        </activity>
+
+        <activity
+            android:name=".activity.EvolucaoActivity"
+            android:parentActivityName=".activity.MenuActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.iworkout.activity.MenuActivity" />
+        </activity>
+
+        <activity
+            android:name=".activity.SobreActivity"
+            android:parentActivityName=".activity.MenuActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.com.iworkout.activity.MenuActivity" />
+        </activity>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

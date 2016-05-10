@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:background="@drawable/bg_main"
+android:layout_height="match_parent">
+
+    <TextView
+    android:layout_centerHorizontal="true"
+    android:text="@string/choose_your_train"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+
+<com.androidplot.xy.XYPlot
+    style="@style/APDefacto.Dark"
+    android:id="@+id/plot"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    ap:label="Medidas"
+    ap:rangeLabel="Peso"
+    ap:domainLabel="Data" />
+
+<Button
+    android:id="@+id/btnVamos"
+    android:layout_width="wrap_content"
+    android:layout_height="50dp"
+    android:background="@drawable/bg_laranja"
+    android:text="Resetar Medidas"
+    android:onClick="resetMetrics"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

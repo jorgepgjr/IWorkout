@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="metrics_array">
+        <item>Peso</item>
+        <item>Perna</item>
+        <item>Biceps</item>
+        <item>Cintura</item>
+        <item>Peito</item>
+    </string-array>
+</resources>

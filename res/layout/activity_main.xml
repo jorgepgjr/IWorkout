@@ -42,14 +42,16 @@
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:id="@+id/imgBtnFriends"
-                    android:background="@drawable/menu_bt_evolucao"/>
+                    android:background="@drawable/menu_bt_evolucao"
+                    android:onClick="onEvolucaoClick"/>
 
                 <ImageButton
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:layout_marginLeft="15dp"
                     android:id="@+id/imgBtnMyGym"
-                    android:background="@drawable/menu_bt_minha_academia" />
+                    android:background="@drawable/menu_bt_minha_academia"
+                    android:onClick="onMinhaAcademiaClick"/>
 
             </TableRow>
         </TableLayout>

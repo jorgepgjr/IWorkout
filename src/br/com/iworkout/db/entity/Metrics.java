@@ -6,6 +6,7 @@ import com.j256.ormlite.field.ForeignCollectionField;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Entity;
 
@@ -32,6 +33,8 @@ public class Metrics implements Serializable {
     Integer quadril;
     @DatabaseField
     Integer coxa;
+    @DatabaseField
+    Date dtInc;
 
     public Metrics() {
         // needed by ormlite
@@ -115,5 +118,13 @@ public class Metrics implements Serializable {
 
     public void setCoxa(Integer coxa) {
         this.coxa = coxa;
+    }
+
+    public Date getDtInc() {
+        return dtInc;
+    }
+
+    public void setDtInc(Date dtInc) {
+        this.dtInc = dtInc;
     }
 }

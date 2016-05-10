@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dip"
+    android:orientation="vertical" >
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner" />
+
+    <com.androidplot.xy.XYPlot
+        style="@style/APDefacto.Light"
+        android:id="@+id/plot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        ap:label="Medidas" />
+
+    <Button
+        android:id="@+id/btnVamos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:background="@drawable/bg_laranja"
+        android:text="Resetar Medidas"
+        android:onClick="resetMetrics"/>
+
+    </LinearLayout>
