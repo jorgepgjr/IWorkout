@@ -25,18 +25,19 @@
             android:layout_marginTop="5dip"
             android:layout_marginBottom="20dip"
             android:singleLine="true"
-            android:hint="Entre com o seu login"
+            android:hint="Entre com o seu Nome"
+            android:id="@+id/nome"
             style="@style/TextAppearance.AppCompat.Base.CompactMenu.Dialog" />
-
+<!--
         <EditText android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dip"
             android:singleLine="true"
             android:password="true"
-            android:hint="Entre com sua senha"/>
+            android:hint="Entre com sua senha"/>-->
         <!-- Link to Registration Screen -->
 
-        <TextView android:id="@+id/esqueci_senha"
+        <!--<TextView android:id="@+id/esqueci_senha"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dip"
@@ -52,7 +53,7 @@
             android:textColor="@android:color/black"
             android:gravity="center"
             android:layout_marginTop="10dp"
-            android:textSize="20dip" />
+            android:textSize="20dip" />-->
 
         <!-- Login button -->
         <Button android:id="@+id/btnLogin"

@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 
+import java.util.Date;
+
 import br.com.iworkout.R;
 import br.com.iworkout.components.CustomEditText;
 import br.com.iworkout.db.entity.Metrics;
@@ -73,6 +75,7 @@ public class MetricsActivity extends DBFragmentActivity {
 
             case R.layout.metrics_midle_finish:
                 RuntimeExceptionDao<Metrics, Integer> dao = super.getHelper().getMetricsDao();
+                metrics.setDtInc(new Date());
                 dao.create(metrics);
                 break;
         }

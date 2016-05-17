@@ -6,12 +6,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
+import com.j256.ormlite.dao.RuntimeExceptionDao;
+
 import java.util.Arrays;
+import java.util.List;
 
 import br.com.iworkout.R;
+import br.com.iworkout.db.entity.Metrics;
+import br.com.iworkout.db.entity.User;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends DBFragmentActivity  {
 
     final String PREFS_NAME = "MyPrefsFile";
     private SharedPreferences settings;
@@ -20,6 +27,13 @@ public class LoginActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RuntimeExceptionDao<User,Integer> dao = super.getHelper().getUserDao();
+        List<User> users = dao.queryForAll();
+
+        if (users != null && users.size() > 0){
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+        }
         setContentView(R.layout.login_activity);
         path = this.getFilesDir().getAbsolutePath();
     }
@@ -29,40 +43,23 @@ public class LoginActivity extends Activity {
     }
 
     public void logar(View view) {
-        //TODO: regra de login
-        //TODO: Verifica se já tem metricas definidas se não tiver manda pra tela de metricas:
+        TextView nome = (TextView) findViewById(R.id.nome);
+
+        RuntimeExceptionDao<User,Integer> dao = super.getHelper().getUserDao();
+        User user = new User();
+        user.setNome(nome.getText().toString());
+        dao.create(user);
+
+        RuntimeExceptionDao<Metrics, Integer> metricsDao = super.getHelper().getMetricsDao();
+        List<Metrics> metrics = metricsDao.queryForAll();
+
+        if (metrics !=null && metrics.size()>0 ){
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
+        }
+
         Intent intent = new Intent(this, MetricsActivity.class);
         startActivity(intent);
-//        Intent intent = new Intent(this, MenuActivity.class);
-//        startActivity(intent);
         finish();
-    }
-
-
-    //Obrigatório sobrescrever para usar o Helper de life cycle do FACEBOOK
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-//        Session session = Session.getActiveSession();
-//        if (session != null &&
-//                (session.isOpened() || session.isClosed()) ) {
-//            onSessionStateChange(session, session.getState(), null);
-//        }
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 }

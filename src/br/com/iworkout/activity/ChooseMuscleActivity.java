@@ -52,9 +52,9 @@ public class ChooseMuscleActivity extends DBActionBarActivity {
                 case R.id.abdominal:
                     musculoId = 1;
                     break;
-                case R.id.aerobico:
-                    musculoId = 2;
-                    break;
+//                case R.id.aerobico:
+//                    musculoId = 2;
+//                    break;
                 case R.id.biceps:
                     musculoId = 3;
                     break;

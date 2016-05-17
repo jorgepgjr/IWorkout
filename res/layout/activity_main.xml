@@ -10,26 +10,32 @@
             android:layout_height="wrap_content"
             android:layout_margin="30dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffda7314"
+                android:text="Olá"
+                android:id="@+id/nomeAtleta"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="15dp"/>
+
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp">
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="75dp">
 
             <ImageButton
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:id="@+id/imgBtnTrain"
                 android:background="@drawable/menu_bt_treinar"
-                android:onClick="onClickTrain" />
+                android:onClick="onClickTrain"
+                />
 
-            <ImageButton
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginLeft="15dp"
-                android:id="@+id/imgBtnResults"
-                android:background="@drawable/menu_bt_meta"
-                android:onClick="onClickSegundo"/>
 
         </TableRow>
 
@@ -44,14 +50,13 @@
                     android:id="@+id/imgBtnFriends"
                     android:background="@drawable/menu_bt_evolucao"
                     android:onClick="onEvolucaoClick"/>
-
                 <ImageButton
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:layout_marginLeft="15dp"
-                    android:id="@+id/imgBtnMyGym"
-                    android:background="@drawable/menu_bt_minha_academia"
-                    android:onClick="onMinhaAcademiaClick"/>
+                    android:id="@+id/imgBtnResults"
+                    android:background="@drawable/menu_bt_meta"
+                    android:onClick="onClickSegundo"/>
 
             </TableRow>
         </TableLayout>

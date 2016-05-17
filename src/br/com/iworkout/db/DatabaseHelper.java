@@ -17,6 +17,7 @@ import br.com.iworkout.db.entity.Metrics;
 import br.com.iworkout.db.entity.Musculo;
 import br.com.iworkout.db.entity.Serie;
 import br.com.iworkout.db.entity.Treino;
+import br.com.iworkout.db.entity.User;
 
 /**
  * Database helper class used to manage the creation and upgrading of your database. This class also usually provides
@@ -27,7 +28,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
     private static final String DATABASE_NAME = "iworkout.db";
     // any time you make changes to your database objects, you may have to increase the database version
-    private static final int DATABASE_VERSION = 32;
+    private static final int DATABASE_VERSION = 33;
 
     // the DAO object we use to access the all tables
     private RuntimeExceptionDao<Musculo, Integer> musculoDao = null;
@@ -35,6 +36,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private RuntimeExceptionDao<Treino, Integer> treinoDao = null;
     private RuntimeExceptionDao<Serie, Integer> serieDao = null;
     private RuntimeExceptionDao<Metrics, Integer> metricsDao = null;
+    private RuntimeExceptionDao<User, Integer> userDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,6 +55,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Serie.class);
             TableUtils.createTable(connectionSource, Treino.class);
             TableUtils.createTable(connectionSource, Metrics.class);
+            TableUtils.createTable(connectionSource, User.class);
 
             fillMusculo();
             fillExercicio();
@@ -76,6 +79,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, Serie.class, true);
             TableUtils.dropTable(connectionSource, Treino.class, true);
             TableUtils.dropTable(connectionSource, Metrics.class, true);
+            TableUtils.dropTable(connectionSource, User.class, true);
             // after we drop the old databases, we create the new ones
             onCreate(db, connectionSource);
         } catch (SQLException e) {
@@ -84,7 +88,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
-    //TODO: Remover isso, criar o banco em um estado já populado
     public void fillMusculo(){
         getMusculoDao().create(new Musculo("Abdominal"));
         getMusculoDao().create(new Musculo("Aerobico"));
@@ -97,21 +100,76 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     }
 
-    //TODO: Remover isso, criar o banco em um estado já populado
     public void fillExercicio(){
         //Abdominal
         getExercicioDao().create(new Exercicio("Simples", getMusculoDao().queryForId(1)));
         getExercicioDao().create(new Exercicio("Canivete", getMusculoDao().queryForId(1)));
+        getExercicioDao().create(new Exercicio("Crunch", getMusculoDao().queryForId(1)));
+        getExercicioDao().create(new Exercicio("Cruzado", getMusculoDao().queryForId(1)));
+        getExercicioDao().create(new Exercicio("Flexão de Quadril", getMusculoDao().queryForId(1)));
+        getExercicioDao().create(new Exercicio("Quatro tempos", getMusculoDao().queryForId(1)));
+        getExercicioDao().create(new Exercicio("Flexão Pé a Pé", getMusculoDao().queryForId(1)));
         //Aerobico
         getExercicioDao().create(new Exercicio("Corrida", getMusculoDao().queryForId(2)));
         getExercicioDao().create(new Exercicio("Corda", getMusculoDao().queryForId(2)));
+
         //Biceps
         getExercicioDao().create(new Exercicio("Rosca Direta", getMusculoDao().queryForId(3)));
         getExercicioDao().create(new Exercicio("Rosca Alternada", getMusculoDao().queryForId(3)));
+        getExercicioDao().create(new Exercicio("Rosca Invertida", getMusculoDao().queryForId(3)));
+        getExercicioDao().create(new Exercicio("Rosca Concentrada", getMusculoDao().queryForId(3)));
+        getExercicioDao().create(new Exercicio("Scott", getMusculoDao().queryForId(3)));
+        getExercicioDao().create(new Exercicio("Martelo", getMusculoDao().queryForId(3)));
+        getExercicioDao().create(new Exercicio("Vinte e um", getMusculoDao().queryForId(3)));
         //Costas
         getExercicioDao().create(new Exercicio("Remada Fechada", getMusculoDao().queryForId(4)));
         getExercicioDao().create(new Exercicio("Rosca Aberta", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Puxada Frontal", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Puxada Atrás", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Puxada Invertida", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Pull Down", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Remada Alta", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Remada Baixa", getMusculoDao().queryForId(4)));
+        getExercicioDao().create(new Exercicio("Remada Unilateral", getMusculoDao().queryForId(4)));
 
+        //Ombro
+        getExercicioDao().create(new Exercicio("Elevação Frontal", getMusculoDao().queryForId(5)));
+        getExercicioDao().create(new Exercicio("Elevação Lateral", getMusculoDao().queryForId(5)));
+        getExercicioDao().create(new Exercicio("Elevação Diagonal", getMusculoDao().queryForId(5)));
+        getExercicioDao().create(new Exercicio("Encolhimento Barra", getMusculoDao().queryForId(5)));
+        getExercicioDao().create(new Exercicio("Encolhimento Haltere", getMusculoDao().queryForId(5)));
+        getExercicioDao().create(new Exercicio("Desenvolvimento Nuca", getMusculoDao().queryForId(5)));
+        getExercicioDao().create(new Exercicio("Desenvolvimento Máquina", getMusculoDao().queryForId(5)));
+
+        //Peitoral
+        getExercicioDao().create(new Exercicio("Supino Reto", getMusculoDao().queryForId(6)));
+        getExercicioDao().create(new Exercicio("Supino Inclinado", getMusculoDao().queryForId(6)));
+        getExercicioDao().create(new Exercicio("Supino Declinado", getMusculoDao().queryForId(6)));
+        getExercicioDao().create(new Exercicio("Pull Over", getMusculoDao().queryForId(6)));
+        getExercicioDao().create(new Exercicio("Peck Deck", getMusculoDao().queryForId(6)));
+        getExercicioDao().create(new Exercicio("Flexão", getMusculoDao().queryForId(6)));
+
+
+        //Pernas
+        getExercicioDao().create(new Exercicio("Agachamento", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Stiff", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Extensora", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Extensora Unilateral", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Flexora", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Flexora Unilateral", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Adutor", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Abdutor", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Panturrilha", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Gêmeos", getMusculoDao().queryForId(7)));
+        getExercicioDao().create(new Exercicio("Leg Press 45", getMusculoDao().queryForId(7)));
+
+        //Triceps
+        getExercicioDao().create(new Exercicio("Pulley", getMusculoDao().queryForId(8)));
+        getExercicioDao().create(new Exercicio("Pulley Invertido", getMusculoDao().queryForId(8)));
+        getExercicioDao().create(new Exercicio("Testa", getMusculoDao().queryForId(8)));
+        getExercicioDao().create(new Exercicio("Corda", getMusculoDao().queryForId(8)));
+        getExercicioDao().create(new Exercicio("Banco", getMusculoDao().queryForId(8)));
+        getExercicioDao().create(new Exercicio("Francês", getMusculoDao().queryForId(8)));
 
     }
 
@@ -152,6 +210,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             metricsDao = getRuntimeExceptionDao(Metrics.class);
         }
         return metricsDao;
+    }
+
+
+    public RuntimeExceptionDao<User, Integer> getUserDao() {
+        if (userDao == null) {
+            userDao = getRuntimeExceptionDao(User.class);
+        }
+        return userDao;
     }
 
     /**

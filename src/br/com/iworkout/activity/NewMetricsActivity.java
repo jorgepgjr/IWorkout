@@ -49,12 +49,6 @@ public class NewMetricsActivity extends DBFragmentActivity {
 
         metrics.setDtInc(new Date());
 
-//        CustomEditText quadril = (CustomEditText) findViewById(R.id.quadril);
-//        metrics.setQuadril(quadril.getValue());
-
-//        CustomEditText antebraco = (CustomEditText) findViewById(R.id.antebraco);
-//        metrics.setAntebraco(antebraco.getValue());
-
         RuntimeExceptionDao<Metrics, Integer> dao = super.getHelper().getMetricsDao();
         dao.create(metrics);
         super.onBackPressed();
